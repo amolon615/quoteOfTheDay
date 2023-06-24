@@ -21,7 +21,7 @@ class QuotesViewModel: ObservableObject {
     
     //navigation direction selector
     func getDirection(direction: String) {
-        print("page number is \(pageNumb)")
+//        print("page number is \(pageNumb)")
         if direction == "forward" {
               if pageNumb < 2 {
                   pageNumb += 1
@@ -69,7 +69,6 @@ class QuotesViewModel: ObservableObject {
     
     //fetching all quotes
     private func fetchData() async throws {
-     
         do {
             let fetchedQuotes: Quotes = try await manager.fetchData(url: "https://dummyjson.com/quotes/?skip=", page: pickPage(), limit: setLimitPerPage())
             DispatchQueue.main.async {
@@ -92,7 +91,7 @@ class QuotesViewModel: ObservableObject {
              let fetchedQuote: Quote = try await manager.fetchData(url: "https://dummyjson.com/quotes/", paramId: id)
              DispatchQueue.main.async {
                  self.quote = fetchedQuote
-                 print("fetched quote is : \(String(describing: self.quote))")
+//                 print("fetched quote is : \(String(describing: self.quote))")
              }
          } catch let error as QuoteLoadingError {
              DispatchQueue.main.async {
@@ -117,9 +116,6 @@ class QuotesViewModel: ObservableObject {
                 }
             }
         }
-    
-    
-    
 }
 
 

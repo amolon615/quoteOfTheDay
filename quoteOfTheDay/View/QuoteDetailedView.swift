@@ -17,8 +17,6 @@ struct DetailedQuoteView: View {
                        .overlay(
                         .ultraThinMaterial
                        )
-                   
-                   
                    VStack (alignment: .center, spacing: 50){
                        Text(quote.quote)
                            .multilineTextAlignment(.center)

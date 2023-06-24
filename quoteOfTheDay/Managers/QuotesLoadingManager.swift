@@ -15,7 +15,7 @@ class DataManager {
         guard let url = URL(string: url + paramId + page + limit) else {
             throw QuoteLoadingError.badUrl
         }
-        print(url)
+//        print(url)
         let session = URLSession(configuration: .default)
         let (data, response) = try await session.data(from: url)
         guard let response = response as? HTTPURLResponse,

@@ -22,7 +22,7 @@ struct QuotesList: View {
                             .onTapGesture { router.navigate(to: .detailedQuoteView(authorId: String(quote.id)))}
                     }
             }
-        } else {
+                } else {
                     LoaderView()
                             .frame(width: 250, height: 250)
                             .onAppear {

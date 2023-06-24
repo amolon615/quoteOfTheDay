@@ -19,7 +19,6 @@ class ImagesViewModel: ObservableObject {
     
     
     private func fetchImage() async throws {
-        print("fetch image initiated")
         do {
             let loadedImagesPexel = try await imageLoader.loadImage()
             DispatchQueue.main.async {
@@ -30,9 +29,8 @@ class ImagesViewModel: ObservableObject {
                     let fetchedPhoto = fetchedPhotos[i].src.landscape
                     guard let unwrappedURLPhoto =  fetchedPhoto else { return }
                     self.imageURLs.append(unwrappedURLPhoto)
-                    print(self.imageURLs.description)
+//                    print(self.imageURLs.description)
                 }
-              
                 self.imagesDidLoad = true
             }
         } catch let error as ImageLoadingError {

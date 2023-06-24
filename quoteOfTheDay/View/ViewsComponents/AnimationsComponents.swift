@@ -8,22 +8,27 @@
 import SwiftUI
 
 struct LoaderView: View {
-    @State var isLoading = false
-    @State var progress: Double = 0
-    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    @State private var circleSize: CGFloat = 10.0
+       @State private var isAnimating = false
     
     var body: some View {
-       
         Circle()
-            .frame(width: 50, height: 50)
-            .foregroundColor(.blue)
+                .foregroundColor(.blue)
+                .frame(width: circleSize, height: circleSize)
+                .scaleEffect(isAnimating ? 4.0 : 1.0)
+                .opacity(isAnimating ? 0.0 : 1.0)
+                .onAppear {
+                    withAnimation(.easeInOut(duration: 1.0).repeatForever(autoreverses: true)){
+                        self.isAnimating = true
+                    }
+                }
         
     }
 }
 
 struct LoaderView_Previews: PreviewProvider {
     static var previews: some View {
-        LoaderView(progress: 0.0)
+        LoaderView()
     }
 }
 
