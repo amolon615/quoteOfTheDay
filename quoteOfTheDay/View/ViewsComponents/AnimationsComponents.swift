@@ -16,14 +16,14 @@ struct LoaderView: View {
           Circle()
             .stroke(
                 Color.blue.opacity(0.5),
-                lineWidth: 30)
+                lineWidth: 5)
                 
             Circle()
                 .trim(from: 0, to: progress)
            .stroke(
                Color.blue,
                style: StrokeStyle(
-                   lineWidth: 30,
+                   lineWidth: 5,
                    lineCap: .round
                )
                        )

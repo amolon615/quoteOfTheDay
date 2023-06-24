@@ -10,28 +10,26 @@ import SwiftUI
 
 struct QuotesList: View {
     @EnvironmentObject var vm: QuotesViewModel
+    @EnvironmentObject var imagesVM: ImagesViewModel
     @EnvironmentObject var router: Router
     
-
+    @State var refreshLoader: Bool = false
     var body: some View {
-                if let quotes = vm.quotes {
-                    ZStack {
-                        List(quotes.quotes) { quote in
-                            Button(quote.quote) {
-                                router.navigate(to: .detailedQuoteView(authorId: String(quote.id)))
-                            }
-                        }
+        if imagesVM.imagesDidLoad && vm.quotes != nil {
+            ScrollView (showsIndicators: false) {
+                ForEach(Array(vm.quotes!.quotes.enumerated()), id:\.element) { index, quote in
+                    CellView(imageNum: imagesVM.imageURLs[index], quoteText: quote.quote)
+                            .onTapGesture { router.navigate(to: .detailedQuoteView(authorId: String(quote.id)))}
                     }
-                } else {
+            }
+        } else {
                     LoaderView()
-                        .frame(width: 250, height: 250)
-                        .onAppear {
-                            if vm.quotes == nil {
-                                vm.loadData()
-                                }
-                        }
+                            .frame(width: 250, height: 250)
+                            .onAppear {
+                                    vm.loadData()
+                                    imagesVM.loadImages()
+                            }
                 }
-           
     }
 }
 
@@ -39,8 +37,6 @@ struct QuotesList: View {
 
 struct QuotesList_Previews: PreviewProvider {
     static var previews: some View {
-        QuotesList()
-            .environmentObject(QuotesViewModel())
-            .environmentObject(Router())
+        ContentView()
     }
 }

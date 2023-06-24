@@ -17,9 +17,9 @@ class QuotesViewModel: ObservableObject {
     @Published var error: QuoteLoadingError? = nil
     @Published var pageNumb: Int = 0
     @Published var limitNub: Int = 10
-
-
-    //page navigation
+    
+    
+    //navigation direction selector
     func getDirection(direction: String) {
         print("page number is \(pageNumb)")
         if direction == "forward" {
@@ -92,6 +92,7 @@ class QuotesViewModel: ObservableObject {
              let fetchedQuote: Quote = try await manager.fetchData(url: "https://dummyjson.com/quotes/", paramId: id)
              DispatchQueue.main.async {
                  self.quote = fetchedQuote
+                 print("fetched quote is : \(String(describing: self.quote))")
              }
          } catch let error as QuoteLoadingError {
              DispatchQueue.main.async {
@@ -116,4 +117,9 @@ class QuotesViewModel: ObservableObject {
                 }
             }
         }
+    
+    
+    
 }
+
+

@@ -15,11 +15,12 @@
 		ACC946E22A4624B3002270F5 /* AnimationsComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC946E12A4624B3002270F5 /* AnimationsComponents.swift */; };
 		ACC946E42A4635E4002270F5 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC946E32A4635E4002270F5 /* Router.swift */; };
 		ACC946E62A463617002270F5 /* QuoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC946E52A463617002270F5 /* QuoteViewModel.swift */; };
-		ACC946E82A463638002270F5 /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC946E72A463638002270F5 /* NetworkingManager.swift */; };
+		ACC946E82A463638002270F5 /* NetworkingManages.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC946E72A463638002270F5 /* NetworkingManages.swift */; };
 		ACC946F02A4636A2002270F5 /* QuoteDetailedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC946EF2A4636A2002270F5 /* QuoteDetailedView.swift */; };
 		ACC946F22A4636C4002270F5 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC946F12A4636C4002270F5 /* ErrorView.swift */; };
 		ACC946F42A463871002270F5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC946F32A463871002270F5 /* ContentView.swift */; };
-		ACC946F62A46610C002270F5 /* AnimationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC946F52A46610C002270F5 /* AnimationsViewModel.swift */; };
+		ACC946F82A467411002270F5 /* CellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC946F72A467411002270F5 /* CellView.swift */; };
+		ACC946FA2A46F695002270F5 /* ImagesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC946F92A46F695002270F5 /* ImagesViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,11 +34,12 @@
 		ACC946E12A4624B3002270F5 /* AnimationsComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationsComponents.swift; sourceTree = "<group>"; };
 		ACC946E32A4635E4002270F5 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		ACC946E52A463617002270F5 /* QuoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteViewModel.swift; sourceTree = "<group>"; };
-		ACC946E72A463638002270F5 /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
+		ACC946E72A463638002270F5 /* NetworkingManages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManages.swift; sourceTree = "<group>"; };
 		ACC946EF2A4636A2002270F5 /* QuoteDetailedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteDetailedView.swift; sourceTree = "<group>"; };
 		ACC946F12A4636C4002270F5 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		ACC946F32A463871002270F5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		ACC946F52A46610C002270F5 /* AnimationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationsViewModel.swift; sourceTree = "<group>"; };
+		ACC946F72A467411002270F5 /* CellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellView.swift; sourceTree = "<group>"; };
+		ACC946F92A46F695002270F5 /* ImagesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,7 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				ACC946E52A463617002270F5 /* QuoteViewModel.swift */,
-				ACC946F52A46610C002270F5 /* AnimationsViewModel.swift */,
+				ACC946F92A46F695002270F5 /* ImagesViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -122,7 +124,7 @@
 		ACC946EC2A463661002270F5 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				ACC946E72A463638002270F5 /* NetworkingManager.swift */,
+				ACC946E72A463638002270F5 /* NetworkingManages.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -131,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				ACC946F12A4636C4002270F5 /* ErrorView.swift */,
+				ACC946F72A467411002270F5 /* CellView.swift */,
 				ACC946E12A4624B3002270F5 /* AnimationsComponents.swift */,
 			);
 			path = ViewsComponents;
@@ -216,15 +219,16 @@
 			files = (
 				ACC946E02A4621AF002270F5 /* DataModel.swift in Sources */,
 				ACC946E22A4624B3002270F5 /* AnimationsComponents.swift in Sources */,
-				ACC946F62A46610C002270F5 /* AnimationsViewModel.swift in Sources */,
 				ACC946E42A4635E4002270F5 /* Router.swift in Sources */,
 				ACC946E62A463617002270F5 /* QuoteViewModel.swift in Sources */,
 				ACC946F02A4636A2002270F5 /* QuoteDetailedView.swift in Sources */,
 				ACC946D12A462109002270F5 /* QuotesList.swift in Sources */,
+				ACC946FA2A46F695002270F5 /* ImagesViewModel.swift in Sources */,
 				ACC946CF2A462109002270F5 /* quoteOfTheDayApp.swift in Sources */,
+				ACC946F82A467411002270F5 /* CellView.swift in Sources */,
 				ACC946F42A463871002270F5 /* ContentView.swift in Sources */,
 				ACC946F22A4636C4002270F5 /* ErrorView.swift in Sources */,
-				ACC946E82A463638002270F5 /* NetworkingManager.swift in Sources */,
+				ACC946E82A463638002270F5 /* NetworkingManages.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

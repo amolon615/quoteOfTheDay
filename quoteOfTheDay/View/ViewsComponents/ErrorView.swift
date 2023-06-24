@@ -15,7 +15,7 @@ struct ErrorView: View {
         ZStack {
             LinearGradient(gradient: Gradient(colors: [.red, .white]), startPoint: .topLeading, endPoint: .bottomTrailing).ignoresSafeArea()
             VStack (spacing: 50){
-                Text("Oh now, your connection is off! ")
+                Text("Oh now, your connection is off!")
                 Button {
                     vm.loadData()
                     vm.error = nil
