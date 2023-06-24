@@ -29,7 +29,6 @@ class ImagesViewModel: ObservableObject {
                     let fetchedPhoto = fetchedPhotos[i].src.landscape
                     guard let unwrappedURLPhoto =  fetchedPhoto else { return }
                     self.imageURLs.append(unwrappedURLPhoto)
-//                    print(self.imageURLs.description)
                 }
                 self.imagesDidLoad = true
             }

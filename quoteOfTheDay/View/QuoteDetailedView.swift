@@ -7,24 +7,23 @@
 
 import SwiftUI
 
+
+
 struct DetailedQuoteView: View {
     @EnvironmentObject var vm: QuotesViewModel
      var authorId: String
        var body: some View {
            if let quote = vm.quote {
                ZStack {
-                   LinearGradient(gradient: Gradient(colors: [.black.opacity(0.7), .green, .blue]), startPoint: .topLeading, endPoint: .bottomTrailing).ignoresSafeArea()
-                       .overlay(
-                        .ultraThinMaterial
-                       )
+                   GradientBackgroundView()
                    VStack (alignment: .center, spacing: 50){
-                       Text(quote.quote)
+                       Text( "\"\(quote.quote)\"")
                            .multilineTextAlignment(.center)
                            .font(.system(size: 30, weight: .semibold, design: .rounded))
                        Text(quote.author)
                    }.padding()
                   
-                   .frame(maxWidth: .infinity, maxHeight: .infinity)
+                       .frame(maxWidth: UIScreen.main.bounds.width * 0.9, maxHeight: .infinity)
                    .fixedSize(horizontal: false, vertical: true)
                    .background(
                     .ultraThinMaterial

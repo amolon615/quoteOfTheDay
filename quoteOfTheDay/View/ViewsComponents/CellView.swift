@@ -39,7 +39,7 @@ struct CellView: View {
                             )
                             .cornerRadius(10)
                     } else {
-                        LoaderView()
+                        ContentLoaderView()
                             .frame(width: 50, height: 50)
                     }
                 }
