@@ -26,14 +26,6 @@ struct LoaderView: View {
     }
 }
 
-struct LoaderView_Previews: PreviewProvider {
-    static var previews: some View {
-        LoaderView()
-        ContentLoaderView()
-    }
-}
-
-
 
 struct ContentLoaderView: View {
     @State var progress:CGFloat = 0
@@ -61,5 +53,31 @@ struct ContentLoaderView: View {
                     progress = 1
                 }
             }
+    }
+}
+
+struct SlidingLoaderView: View {
+    @State private var isLoaded: Bool = false
+    
+    var body: some View {
+        ZStack {
+            AngularGradient(colors: [.cyan, .blue, .green], center: .center, startAngle: Angle(degrees: 0), endAngle: Angle(degrees: isLoaded ? 360 : 0)).ignoresSafeArea()
+         
+        }
+            .onAppear {
+                withAnimation(.linear(duration: 2.0).repeatForever(autoreverses: false)){
+                    self.isLoaded.toggle()
+                }
+            }
+    }
+}
+
+
+
+struct LoaderView_Previews: PreviewProvider {
+    static var previews: some View {
+        LoaderView()
+        ContentLoaderView()
+        SlidingLoaderView()
     }
 }

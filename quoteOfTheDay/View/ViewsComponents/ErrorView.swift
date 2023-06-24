@@ -29,7 +29,7 @@ struct ErrorView: View {
                 .clipShape(RoundedRectangle(cornerRadius: 10))
             }
 
-        }
+        }.ignoresSafeArea()
     }
 }
 
