@@ -20,7 +20,9 @@ struct DetailedQuoteView: View {
                    
                    
                    VStack (alignment: .center, spacing: 50){
-                       Text(quote.quote).multilineTextAlignment(.center)
+                       Text(quote.quote)
+                           .multilineTextAlignment(.center)
+                           .font(.system(size: 30, weight: .semibold, design: .rounded))
                        Text(quote.author)
                    }.padding()
                   

@@ -35,7 +35,7 @@ enum ImageLoadingError: Error {
 
 
 
-//image
+//image data structures
 struct Images: Codable {
     let page, perPage: Int
     let photos: [Photo]?

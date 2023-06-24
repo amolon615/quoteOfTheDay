@@ -14,13 +14,14 @@ struct ErrorView: View {
     var body: some View {
         ZStack {
             LinearGradient(gradient: Gradient(colors: [.red, .white]), startPoint: .topLeading, endPoint: .bottomTrailing).ignoresSafeArea()
+                .cornerRadius(10)
             VStack (spacing: 50){
-                Text("Oh now, your connection is off!")
+                Text("Oh now, your internet connection went off!")
                 Button {
                     vm.loadData()
                     vm.error = nil
                 } label: {
-                    Text("Tap to try again")
+                    Text("Tap to try load again")
                 }
                 .padding()
                 .foregroundColor(.white)

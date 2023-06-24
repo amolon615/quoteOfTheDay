@@ -68,7 +68,7 @@ class QuotesViewModel: ObservableObject {
     }
     
     //fetching all quotes
-    func fetchData() async throws {
+    private func fetchData() async throws {
      
         do {
             let fetchedQuotes: Quotes = try await manager.fetchData(url: "https://dummyjson.com/quotes/?skip=", page: pickPage(), limit: setLimitPerPage())
@@ -106,7 +106,7 @@ class QuotesViewModel: ObservableObject {
      }
     
     //loading data
-    func loadData() {
+     func loadData() {
             Task {
                 do {
                     try await fetchData()

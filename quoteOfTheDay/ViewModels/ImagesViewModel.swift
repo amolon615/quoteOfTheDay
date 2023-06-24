@@ -24,7 +24,7 @@ class ImagesViewModel: ObservableObject {
             let loadedImagesPexel = try await imageLoader.loadImage()
             DispatchQueue.main.async {
                 self.fetchedPhotos = loadedImagesPexel?.photos
-                
+                self.imagesDidLoad = false
                 guard let fetchedPhotos = self.fetchedPhotos else { return }
                 for i in 0...50 {
                     let fetchedPhoto = fetchedPhotos[i].src.landscape

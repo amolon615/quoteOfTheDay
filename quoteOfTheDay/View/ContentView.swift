@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject var router = Router()
     @StateObject var vm = QuotesViewModel()
     @StateObject var imagesVM = ImagesViewModel()
-    @ObservedObject var router = Router()
+ 
     var body: some View {
         NavigationStack(path: $router.navPath) {
             QuotesList()
@@ -32,8 +33,8 @@ struct ContentView: View {
                                    .environmentObject(imagesVM)
                            }
                        }
-                       .toolbar {
-                           ToolbarItem (placement: .navigationBarLeading){
+                       .toolbar  {
+                           ToolbarItem (placement: .bottomBar){
                                    Menu {
                                        Section("Set quotes limit visible per page") {
                                            ForEach(1...5, id:\.self) {number in
@@ -50,14 +51,14 @@ struct ContentView: View {
                                    }
                                }
 
-                           ToolbarItem(placement: .navigationBarTrailing) {
+                           ToolbarItem(placement: .bottomBar) {
                                Button("Previous") {
                                    vm.getDirection(direction: "previous")
                                    vm.loadData()
                                }
                            }
                            
-                           ToolbarItem(placement: .navigationBarTrailing) {
+                           ToolbarItem(placement: .bottomBar) {
                                Button("Next") {
                                    vm.getDirection(direction: "forward")
                                    vm.loadData()
