@@ -3,6 +3,8 @@ The app for showing quotes
 
 ![alt text](https://raw.githubusercontent.com/amolon615/quoteOfTheDay/main/github_cover.png)
 
+
+
 Short project overview
 1. Quotly is build 100% in clean **SwiftUI**. All requests handled with native Swift instrument (**URLSession**).
 2. Pexels (free images database) was integrated to fetch images for UI improvements. Integration is also 100% native using same URLSession api. (see **ImagesLoadingManager** file for details and comments)
@@ -15,6 +17,8 @@ Short project overview
 9. It was built with a **MVVM** structure, and tests could be implemented easily (both unit & UI).
 10. Pagination system is impemented (see **QuoteViewModel** for details and comments) 
 11. Nice (**arguable**) UI & animations (transitions) added.
+
+![alt text](https://raw.githubusercontent.com/amolon615/quoteOfTheDay/main/cover_2.png)
 
 
 Details:
