@@ -8,12 +8,14 @@
 import SwiftUI
 
 final class Router: ObservableObject {
+    @Published var navPath = NavigationPath()
+    
     public enum Destination: Codable, Hashable {
         case detailedQuoteView(authorId: String)
         case errorView(errorTitle: String?, errorImage: String?, errorSolution: String?)
     }
     
-    @Published var navPath = NavigationPath()
+  
     
     func navigate(to destination: Destination) {
         navPath.append(destination)

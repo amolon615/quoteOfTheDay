@@ -22,6 +22,42 @@ struct QuotesList: View {
                             .onTapGesture { router.navigate(to: .detailedQuoteView(authorId: String(quote.id)))}
                     }
             }
+            .overlay (
+                VStack {
+                    Spacer()
+                    HStack {
+                        ZStack {
+                            Circle()
+                            Image(systemName: "arrow.left.circle")
+                                .foregroundColor(.white)
+                                .font(.system(size: 30, weight: .semibold, design: .rounded))
+                        }
+                            .frame(width: 60)
+                            .foregroundColor(.black.opacity(0.7))
+                            .padding(.leading, 20)
+                            .padding(.bottom, 20)
+                            .onTapGesture {
+                                vm.getDirection(direction: "previous")
+                                vm.loadData()
+                            }
+                        Spacer()
+                        ZStack {
+                            Circle()
+                            Image(systemName: "arrow.right.circle")
+                                .foregroundColor(.white)
+                                .font(.system(size: 30, weight: .semibold, design: .rounded))
+                        }
+                            .frame(width: 60)
+                            .foregroundColor(.black.opacity(0.7))
+                            .padding(.trailing, 20)
+                            .padding(.bottom, 20)
+                            .onTapGesture {
+                                vm.getDirection(direction: "forward")
+                                vm.loadData()
+                            }
+                    }
+                }
+            )
                 } else {
                     LoaderView()
                         .onAppear {

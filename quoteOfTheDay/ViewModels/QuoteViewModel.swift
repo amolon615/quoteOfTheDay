@@ -17,11 +17,11 @@ class QuotesViewModel: ObservableObject {
     @Published var quote: Quote? = nil
     
     //error handling
-//    @Published var error: QuoteLoadingError? = nil
     @Published var errorTitle: String? = nil
     @Published var errorImage: String? = nil
     @Published var errorSolution: String? = nil
     @Published var retryButtonShow: Bool = true
+    
     //page controls
     @Published var pageNumb: Int = 0
     @Published var limitNub: Int = 10
@@ -49,7 +49,7 @@ class QuotesViewModel: ObservableObject {
     }
     
     
-    //switch pages
+    //switch pages, constracting our URL
     private func pickPage() -> String {
         switch pageNumb {
         case 0:

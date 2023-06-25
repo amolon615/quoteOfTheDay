@@ -21,7 +21,7 @@ struct ContentView: View {
                                DetailedQuoteView(authorId: id)
                                    .environmentObject(vm)
                                    .environmentObject(imagesVM)
-                           case .errorView(errorTitle: let errorTitle):
+                           case .errorView(errorTitle: _):
                                ErrorView(errorTitle: vm.errorTitle, errorImage: vm.errorImage, errorSolution: vm.errorSolution)
                                    .environmentObject(vm)
                                    .environmentObject(imagesVM)
@@ -30,28 +30,7 @@ struct ContentView: View {
                        .navigationTitle("Quotes")
                        .environmentObject(vm)
                        .environmentObject(imagesVM)
-                       .toolbar  {
-                          
-                               ToolbarItem(placement: .navigationBarTrailing) {
-                                   Text("Page: \(vm.currentPage)")
-                               }
-                               
-                               ToolbarItem(placement: .bottomBar) {
-                                   Button("Previous") {
-                                       vm.getDirection(direction: "previous")
-                                       vm.loadData()
-                                   }
-                               }
-                               
-                               ToolbarItem(placement: .bottomBar) {
-                                   Button("Next") {
-                                       vm.getDirection(direction: "forward")
-                                       vm.loadData()
-                                       
-                                   }
-                               }
-                           
-                       }
+                       .toolbar {  ToolbarItem(placement: .navigationBarTrailing) { Text("Page: \(vm.currentPage)")}}
                        .onChange(of: vm.errorTitle, perform: { newValue in
                            if let errorTitle = vm.errorTitle,
                               let errorImage = vm.errorImage,
