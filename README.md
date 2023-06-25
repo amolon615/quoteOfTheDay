@@ -1,7 +1,7 @@
 # QUOTLY
 The app for showing quotes
 
-<img src="[/path/to/img.jpg](https://raw.githubusercontent.com/amolon615/quoteOfTheDay/main/github_cover.png)" alt="Quotly cover imaget" title="Quotly Cover">
+![alt text](https://raw.githubusercontent.com/amolon615/quoteOfTheDay/main/github_cover.png)
 
 
 Short prject overview:
