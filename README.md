@@ -1,7 +1,7 @@
 # QUOTLY
 The app for showing quotes
 
-![alt text](https://raw.githubusercontent.com/amolon615/quoteOfTheDay/main/Quotly_Screenshots/Meet%20Quotly.png)
+![alt text](https://raw.githubusercontent.com/amolon615/quoteOfTheDay/main/Quotly_Screenshots/Meet_Quotly.png)
 
 
 
@@ -25,7 +25,7 @@ Short project overview
     
 
 
-![alt text](https://raw.githubusercontent.com/amolon615/quoteOfTheDay/main/Quotly_Screenshots/Share.jpg)
+![alt text](https://raw.githubusercontent.com/amolon615/quoteOfTheDay/main/Quotly_Screenshots/Share%20With%20Friends.jpg)
 
 
 Details:
