@@ -1,16 +1,16 @@
-# quoteOfTheDay
+# QUOTLY
 The app for showing quotes
 
-Short overview:
-1. quoteOfTheDay is build 100% in clean SwiftUI. All requests handled with native Swift instruments (URLSession).
+Short prject overview:
+1. Quotly is build 100% in clean SwiftUI. All requests handled with native Swift instrument (URLSession).
 2. Pexels (free images database) was integrated to fetch images for UI improvements. Integration is also 100% native using same URLSession api. (see ImagesLoadingManager for details and comments)
 3. No 3rd party code components OR libraries were used.
 4. Target iOS version 16.4.
 5. Works on any iPhone screen size.
 6. Works on xCode 14.3.
-7. The app doesn't have any warnings or crashes, errors are handled.
-8. quoteOfTheday works on iOS and iPad (was not optimized for macOS).
-9. It build with a MVVM structure, and fully tests can be implemented easily (both unit & UI).
+7. The app doesn't have any warnings or crashes, errors are propety handled.
+8. Quotly works on iOS and iPad (was not optimized for macOS).
+9. It was built with a MVVM structure, and test could be implemented easily (both unit & UI).
 10. Pagination system is impemented (see QuoteViewModel for details and comments) 
 11. Nice (arguable) UI & animations (transitions) added.
 
@@ -30,8 +30,6 @@ Details:
    5.5 CellView (one element view for QuotesList)
    5.6 Gradient Background View (contains all animated backgrounds)
    5.7 LoaderViews (contains all loaders animations)
-
-
 
 
 
