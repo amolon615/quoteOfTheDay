@@ -107,7 +107,7 @@ class QuotesViewModel: ObservableObject {
                 self.errorImage = "unicorn_black"
                 self.retryButtonShow = false
             case .badResponse:
-                self.errorTitle = "Bad Server Response. "
+                self.errorTitle = "Bad Server Response."
                 self.errorSolution = "Server issues. It has nothing to do with you :)"
                 self.errorImage = "astronaut"
                 self.retryButtonShow = true
@@ -118,13 +118,13 @@ class QuotesViewModel: ObservableObject {
                 self.retryButtonShow = false
             case .badLoading:
                 self.errorTitle = "Bad Loading."
-                self.errorSolution = "Network might dropped during the process. Re-try."
+                self.errorSolution = "Something went wrong with data loading. Contact developer "
                 self.errorImage = "astronaut"
                 self.retryButtonShow = true
             }
         } else {
             self.errorTitle = "Connections issues"
-            self.errorSolution = "Check Internet connection and re-try."
+            self.errorSolution = "Check Internet connection and retry."
             self.errorImage = "astronaut"
             self.retryButtonShow = true
         }
