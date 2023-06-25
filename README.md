@@ -24,12 +24,21 @@ Details:
 4. The app has two separate view models for handling operations of getting data and passing it to views.
 
 File Structure:
-
 1. Router - manages navigation & dependancy injections
 2. Managers -  QuotesLoadingManager (loads quotes) and  ImagesLoadingManager (loads images from Pexel)
 3. DataModels - contains all data structures - Quotes, Quote, Images, Errors
 4. ViewModels - QuoteViewModel(manages all quotes ops and passing data to Views) and ImagesViewModel ( manages all images ops and passing loaded image urls to Views.)
 5. Views (Content View, QuotesListView, QuoteDetailedView, Error View) and View Components (CellView, Gradient, LoaderViews)
+
+Possible next steps for development:
+1. Implement sharing quote feature
+2. Add bookmarking feature
+3. Implement openAI API to get a category for each quote and fetch Image for a cell based on its category
+4. Add widgets (iOS 17 add a button to load a new quote to a widget)
+5. Implement UI & Unit tests
+   
+
+   
    
 
 
