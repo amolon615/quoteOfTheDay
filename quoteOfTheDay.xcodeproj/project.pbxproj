@@ -12,7 +12,7 @@
 		ACC946D12A462109002270F5 /* QuotesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC946D02A462109002270F5 /* QuotesListView.swift */; };
 		ACC946D32A46210A002270F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACC946D22A46210A002270F5 /* Assets.xcassets */; };
 		ACC946D72A46210A002270F5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACC946D62A46210A002270F5 /* Preview Assets.xcassets */; };
-		ACC946E02A4621AF002270F5 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC946DF2A4621AF002270F5 /* DataModel.swift */; };
+		ACC946E02A4621AF002270F5 /* DataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC946DF2A4621AF002270F5 /* DataModels.swift */; };
 		ACC946E22A4624B3002270F5 /* LoadersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC946E12A4624B3002270F5 /* LoadersView.swift */; };
 		ACC946E42A4635E4002270F5 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC946E32A4635E4002270F5 /* Router.swift */; };
 		ACC946E62A463617002270F5 /* QuoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC946E52A463617002270F5 /* QuoteViewModel.swift */; };
@@ -26,8 +26,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		ACAEA5EE2A47776400ECA7E4 /* quoteOfTheDayUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = quoteOfTheDayUITests.swift; sourceTree = "<group>"; };
-		ACAEA5F02A47776400ECA7E4 /* quoteOfTheDayUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = quoteOfTheDayUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		ACAEA5F72A47781000ECA7E4 /* GradientBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientBackgroundView.swift; sourceTree = "<group>"; };
 		ACC946CB2A462109002270F5 /* quoteOfTheDay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = quoteOfTheDay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACC946CE2A462109002270F5 /* quoteOfTheDayApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = quoteOfTheDayApp.swift; sourceTree = "<group>"; };
@@ -35,7 +33,7 @@
 		ACC946D22A46210A002270F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ACC946D42A46210A002270F5 /* quoteOfTheDay.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = quoteOfTheDay.entitlements; sourceTree = "<group>"; };
 		ACC946D62A46210A002270F5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		ACC946DF2A4621AF002270F5 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		ACC946DF2A4621AF002270F5 /* DataModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModels.swift; sourceTree = "<group>"; };
 		ACC946E12A4624B3002270F5 /* LoadersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadersView.swift; sourceTree = "<group>"; };
 		ACC946E32A4635E4002270F5 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		ACC946E52A463617002270F5 /* QuoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteViewModel.swift; sourceTree = "<group>"; };
@@ -59,20 +57,10 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		ACAEA5ED2A47776400ECA7E4 /* quoteOfTheDayUITests */ = {
-			isa = PBXGroup;
-			children = (
-				ACAEA5EE2A47776400ECA7E4 /* quoteOfTheDayUITests.swift */,
-				ACAEA5F02A47776400ECA7E4 /* quoteOfTheDayUITestsLaunchTests.swift */,
-			);
-			path = quoteOfTheDayUITests;
-			sourceTree = "<group>";
-		};
 		ACC946C22A462109002270F5 = {
 			isa = PBXGroup;
 			children = (
 				ACC946CD2A462109002270F5 /* quoteOfTheDay */,
-				ACAEA5ED2A47776400ECA7E4 /* quoteOfTheDayUITests */,
 				ACC946CC2A462109002270F5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -115,6 +103,7 @@
 				ACC946F32A463871002270F5 /* ContentView.swift */,
 				ACC946D02A462109002270F5 /* QuotesListView.swift */,
 				ACC946EF2A4636A2002270F5 /* QuoteDetailedView.swift */,
+				ACC946F12A4636C4002270F5 /* ErrorView.swift */,
 				ACC946ED2A46366D002270F5 /* ViewsComponents */,
 			);
 			path = View;
@@ -123,7 +112,7 @@
 		ACC946EA2A46364C002270F5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				ACC946DF2A4621AF002270F5 /* DataModel.swift */,
+				ACC946DF2A4621AF002270F5 /* DataModels.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -150,7 +139,6 @@
 			isa = PBXGroup;
 			children = (
 				ACC946F72A467411002270F5 /* CellView.swift */,
-				ACC946F12A4636C4002270F5 /* ErrorView.swift */,
 				ACAEA5F72A47781000ECA7E4 /* GradientBackgroundView.swift */,
 				ACC946E12A4624B3002270F5 /* LoadersView.swift */,
 			);
@@ -235,7 +223,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ACC946E02A4621AF002270F5 /* DataModel.swift in Sources */,
+				ACC946E02A4621AF002270F5 /* DataModels.swift in Sources */,
 				ACC946E22A4624B3002270F5 /* LoadersView.swift in Sources */,
 				ACC946FE2A47136E002270F5 /* ImagesLoadingManager.swift in Sources */,
 				ACC946E42A4635E4002270F5 /* Router.swift in Sources */,

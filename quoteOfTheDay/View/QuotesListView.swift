@@ -13,11 +13,9 @@ struct QuotesList: View {
     @EnvironmentObject var imagesVM: ImagesViewModel
     @EnvironmentObject var router: Router
 
-    @State var refreshLoader: Bool = true
+    
     var body: some View {
-        
-     
-        if imagesVM.imagesDidLoad && vm.quotes != nil && refreshLoader == false {
+        if imagesVM.imagesDidLoad && vm.quotes != nil && vm.quotesDidLoad == true {
             ScrollView (showsIndicators: false) {
                 ForEach(Array(vm.quotes!.quotes.enumerated()), id:\.element) { index, quote in
                     CellView(imageNum: imagesVM.imageURLs[index], quoteText: quote.quote)
@@ -26,17 +24,10 @@ struct QuotesList: View {
             }
                 } else {
                     LoaderView()
-//                            .frame(width: 250, height: 250)
-                            .onAppear {
-                                    vm.loadData()
-                                    imagesVM.loadImages()
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                                    withAnimation(.easeIn(duration: 1.5)) {
-                                        refreshLoader = false
-                                    }
-                                }
+                        .onAppear {
+                            vm.loadData()
+                            imagesVM.loadImages()
                             }
-                            
                 }
     }
 }

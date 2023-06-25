@@ -5,14 +5,13 @@
 //  Created by Artem on 23/06/2023.
 //
 
-import Foundation
 import SwiftUI
 
 //quotes loader
 class DataManager {
     //generic method for fetching data. url is building during the call adding paramId, page number or limit for objects per page.
-    func fetchData <T: Codable> (url: String, paramId: String = "", page: String = "", limit: String = "") async throws -> T {
-        guard let url = URL(string: url + paramId + page + limit) else {
+    func fetchData <T: Codable> (url: String, paramId: String = "", page: String = "") async throws -> T {
+        guard let url = URL(string: url + paramId + page) else {
             throw QuoteLoadingError.badUrl
         }
 //        print(url)

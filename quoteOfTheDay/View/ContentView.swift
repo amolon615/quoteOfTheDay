@@ -21,53 +21,48 @@ struct ContentView: View {
                                DetailedQuoteView(authorId: id)
                                    .environmentObject(vm)
                                    .environmentObject(imagesVM)
+                           case .errorView(errorTitle: let errorTitle):
+                               ErrorView(errorTitle: vm.errorTitle, errorImage: vm.errorImage, errorSolution: vm.errorSolution)
+                                   .environmentObject(vm)
+                                   .environmentObject(imagesVM)
                            }
                        }
                        .navigationTitle("Quotes")
                        .environmentObject(vm)
                        .environmentObject(imagesVM)
-                       .overlay {
-                           if vm.error != nil {
-                               ErrorView()
-                                   .environmentObject(vm)
-                                   .environmentObject(imagesVM)
-                           }
-                       }
                        .toolbar  {
-                           ToolbarItem (placement: .bottomBar){
-                                   Menu {
-                                       Section("Set quotes limit visible per page") {
-                                           ForEach(1...5, id:\.self) {number in
-                                               Button("\(number * 10)") {
-                                                   vm.limitNub = number * 10
-                                                   vm.loadData()
-                                                   imagesVM.loadImages()
-                                                   
-                                               }
-                                           }
-                                          }
-                                   } label: {
-                                       Image(systemName: "list.bullet")
+                          
+                               ToolbarItem(placement: .navigationBarTrailing) {
+                                   Text("Page: \(vm.currentPage)")
+                               }
+                               
+                               ToolbarItem(placement: .bottomBar) {
+                                   Button("Previous") {
+                                       vm.getDirection(direction: "previous")
+                                       vm.loadData()
                                    }
                                }
-
-                           ToolbarItem(placement: .bottomBar) {
-                               Button("Previous") {
-                                   vm.getDirection(direction: "previous")
-                                   vm.loadData()
+                               
+                               ToolbarItem(placement: .bottomBar) {
+                                   Button("Next") {
+                                       vm.getDirection(direction: "forward")
+                                       vm.loadData()
+                                       
+                                   }
                                }
-                           }
                            
-                           ToolbarItem(placement: .bottomBar) {
-                               Button("Next") {
-                                   vm.getDirection(direction: "forward")
-                                   vm.loadData()
-                                   
-                               }
-                           }
                        }
+                       .onChange(of: vm.errorTitle, perform: { newValue in
+                           if let errorTitle = vm.errorTitle,
+                              let errorImage = vm.errorImage,
+                              let errorSolution = vm.errorSolution {
+                               router.navigate(to: .errorView(errorTitle: errorTitle, errorImage: errorImage, errorSolution: errorSolution))
+                              }
+                       }) 
+                      
                        
-                   }
+        }
+                
                    .environmentObject(router)
     }
 }

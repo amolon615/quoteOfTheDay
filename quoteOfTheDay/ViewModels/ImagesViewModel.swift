@@ -5,7 +5,7 @@
 //  Created by Artem on 24/06/2023.
 //
 
-import Foundation
+import SwiftUI
 
 
 class ImagesViewModel: ObservableObject {
@@ -17,7 +17,9 @@ class ImagesViewModel: ObservableObject {
     @Published var fetchedPhotos: [Photo]? = nil
     @Published var imagesDidLoad: Bool = false
     
+
     
+    //fetching the list of curated images
     private func fetchImage() async throws {
         do {
             let loadedImagesPexel = try await imageLoader.loadImage()
@@ -30,7 +32,11 @@ class ImagesViewModel: ObservableObject {
                     guard let unwrappedURLPhoto =  fetchedPhoto else { return }
                     self.imageURLs.append(unwrappedURLPhoto)
                 }
-                self.imagesDidLoad = true
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    withAnimation(.easeIn(duration: 1.5)) {
+                        self.imagesDidLoad = true
+                    }
+                }
             }
         } catch let error as ImageLoadingError {
             DispatchQueue.main.async {
@@ -44,11 +50,12 @@ class ImagesViewModel: ObservableObject {
         }
     }
 
-    
+    //loading images
     func loadImages() {
         Task {
             do {
                 try await fetchImage()
+             
             } catch {
                 DispatchQueue.main.async {
                     self.imageLoadingError = ImageLoadingError.badDecoding

@@ -11,7 +11,7 @@ import SwiftUI
 
 struct DetailedQuoteView: View {
     @EnvironmentObject var vm: QuotesViewModel
-     var authorId: String
+    var authorId: String
     @State var isLoading = true
        var body: some View {
            if let quote = vm.quote, isLoading == false {
@@ -22,9 +22,9 @@ struct DetailedQuoteView: View {
                            .multilineTextAlignment(.center)
                            .font(.system(size: 30, weight: .semibold, design: .rounded))
                        Text(quote.author)
-                   }.padding()
-                  
-                       .frame(maxWidth: UIScreen.main.bounds.width * 0.9, maxHeight: .infinity)
+                   }
+                   .padding()
+                    .frame(maxWidth: UIScreen.main.bounds.width * 0.9, maxHeight: .infinity)
                    .fixedSize(horizontal: false, vertical: true)
                    .background(
                     .ultraThinMaterial
@@ -33,18 +33,17 @@ struct DetailedQuoteView: View {
                    .onDisappear {
                        vm.quote = nil
                    }
-            }
+               }
            } else {
                SlidingLoaderView().ignoresSafeArea()
                    .onAppear {
-                       Task { await vm.fetchQuoteData(withID: authorId) }
+                        vm.loadData(withID: authorId) 
                        DispatchQueue.main.asyncAfter(deadline: .now()+2) {
                            withAnimation(.easeOut(duration: 1.0)){
                                self.isLoading = false
                            }
                        }
                    }
-               
            }
     }
 }
@@ -57,37 +56,3 @@ struct DetailedQuoteView_Previews: PreviewProvider {
             .environmentObject(ImagesViewModel())
     }
 }
-
-
-//struct DetailedQuoteView: View {
-//    @EnvironmentObject var vm: QuotesViewModel
-//     var authorId: String
-//    
-//       var body: some View {
-//           if let quote = vm.quote {
-//               ZStack {
-//                   GradientBackgroundView()
-//                   VStack (alignment: .center, spacing: 50){
-//                       Text( "\"\(quote.quote)\"")
-//                           .multilineTextAlignment(.center)
-//                           .font(.system(size: 30, weight: .semibold, design: .rounded))
-//                       Text(quote.author)
-//                   }.padding()
-//                  
-//                       .frame(maxWidth: UIScreen.main.bounds.width * 0.9, maxHeight: .infinity)
-//                   .fixedSize(horizontal: false, vertical: true)
-//                   .background(
-//                    .ultraThinMaterial
-//                   )
-//                   .cornerRadius(20)
-//                   .onDisappear {
-//                       vm.quote = nil
-//                   }
-//            }
-//           } else {
-//               LoaderView()
-//                   .frame(width: 150, height: 150)
-//                   .onAppear { Task { await vm.fetchQuoteData(withID: authorId) } }
-//           }
-//    }
-//}
