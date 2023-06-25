@@ -10,15 +10,21 @@ import SwiftUI
 struct ErrorView: View {
     @EnvironmentObject var vm: QuotesViewModel
     @EnvironmentObject var router: Router
-    var errorTitle: String? = "error title"
-    var errorImage: String? = "unicorn_black"
-    var errorSolution: String? = "error solution"
+    var errorTitle: String?
+    var errorImage: String?
+    var errorSolution: String?
     
     var body: some View {
         ZStack {
             Color.black.ignoresSafeArea()
             VStack (spacing: 50){
-                Text("An app without errors is like a unicorn on roller skates - it sounds magical, but it's just too good to be true.")
+                VStack {
+                    Text("Error title: \(errorTitle ?? "error title placeholder")")
+                        .foregroundColor(.red)
+                    Text("Solution: \(errorSolution ?? "error solution placeholder")")
+                        .foregroundColor(.red)
+                }
+                
                     .multilineTextAlignment(.center)
                     .foregroundColor(.white)
                     .font(.system(size: 18, weight: .semibold, design: .rounded))
@@ -29,13 +35,14 @@ struct ErrorView: View {
                      .ultraThinMaterial
                     )
                     .cornerRadius(20)
-                Image(errorImage ?? "unicorn_black").resizable().scaledToFit().frame(width: 200, height: 200)
-                VStack {
-                    Text("Error title: \(errorTitle ?? "error title placeholder")")
-                        .foregroundColor(.red)
-                    Text("Solution: \(errorSolution ?? "error solution placeholder")")
-                        .foregroundColor(.red)
-                }
+                
+                Image(errorImage ?? "unicorn_black")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 200, height: 200)
+            
+                
+                Text("An app without errors is like a unicorn on roller skates - it sounds magical, but it's just too good to be true.")
                     .multilineTextAlignment(.center)
                     .foregroundColor(.white)
                     .font(.system(size: 18, weight: .semibold, design: .rounded))
@@ -72,7 +79,7 @@ struct ErrorView: View {
 
 struct ErrorView_Previews: PreviewProvider {
     static var previews: some View {
-        ErrorView()
+        ErrorView(errorTitle: "Internet missing", errorImage: "astronaut", errorSolution: "Reconnect to the internet")
             .environmentObject(QuotesViewModel())
     }
 }

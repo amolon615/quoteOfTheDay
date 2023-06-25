@@ -7,10 +7,10 @@
 
 import SwiftUI
 
-
-
 struct DetailedQuoteView: View {
     @EnvironmentObject var vm: QuotesViewModel
+    @StateObject var qmVM = QuoteManager()
+    
     var authorId: String
     @State var isLoading = true
        var body: some View {
@@ -22,6 +22,17 @@ struct DetailedQuoteView: View {
                            .multilineTextAlignment(.center)
                            .font(.system(size: 30, weight: .semibold, design: .rounded))
                        Text(quote.author)
+                       ShareLink(item: qmVM.quoteToShare, preview: SharePreview(quote.author, image: qmVM.quoteToShare)) {
+                           ZStack {
+                               ShareButton()
+                               Image(systemName: "square.and.arrow.up.circle")
+                                   .font(.system(size: 30, weight: .semibold, design: .rounded))
+                                   .foregroundColor(.white.opacity(0.75))
+                           }
+                               .frame(width: 60, height: 60)
+                       }
+                           
+
                    }
                    .padding()
                     .frame(maxWidth: UIScreen.main.bounds.width * 0.9, maxHeight: .infinity)
@@ -33,6 +44,12 @@ struct DetailedQuoteView: View {
                    .onDisappear {
                        vm.quote = nil
                    }
+                   
+               }
+               .onAppear {
+                   let viewToImage = quoteCard.environmentObject(vm)
+                       qmVM.Save(view: viewToImage)
+                   
                }
            } else {
                SlidingLoaderView().ignoresSafeArea()
@@ -46,6 +63,28 @@ struct DetailedQuoteView: View {
                    }
            }
     }
+    
+        //sharing quote card (removed sharing button)
+    var quoteCard: some View {
+            ZStack {
+                GradientBackgroundView()
+                VStack (alignment: .center, spacing: 50){
+                    if let quote = vm.quote {
+                        Text( "\"\(quote.quote)\"")
+                            .multilineTextAlignment(.center)
+                            .font(.system(size: 30, weight: .semibold, design: .rounded))
+                        Text(quote.author)
+                    }
+                }
+                .padding()
+                 .frame(maxWidth: UIScreen.main.bounds.width * 0.9, maxHeight: .infinity)
+                .fixedSize(horizontal: false, vertical: true)
+                .background(
+                 .ultraThinMaterial
+                )
+                .cornerRadius(20)
+            }
+        }
 }
 
 

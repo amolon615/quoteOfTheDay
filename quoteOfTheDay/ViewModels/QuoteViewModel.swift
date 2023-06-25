@@ -47,8 +47,7 @@ class QuotesViewModel: ObservableObject {
                     }
                 }
     }
-    
-    
+
     //switch pages, constracting our URL
     private func pickPage() -> String {
         switch pageNumb {
@@ -110,7 +109,7 @@ class QuotesViewModel: ObservableObject {
             case .badResponse:
                 self.errorTitle = "Bad Server Response. "
                 self.errorSolution = "Server issues. It has nothing to do with you :)"
-                self.errorImage = "austronaut"
+                self.errorImage = "astronaut"
                 self.retryButtonShow = true
             case .badDecoding:
                 self.errorTitle = "Bad Decoding."
@@ -120,13 +119,13 @@ class QuotesViewModel: ObservableObject {
             case .badLoading:
                 self.errorTitle = "Bad Loading."
                 self.errorSolution = "Network might dropped during the process. Re-try."
-                self.errorImage = "austronaut"
+                self.errorImage = "astronaut"
                 self.retryButtonShow = true
             }
         } else {
             self.errorTitle = "Connections issues"
             self.errorSolution = "Check Internet connection and re-try."
-            self.errorImage = "austronaut"
+            self.errorImage = "astronaut"
             self.retryButtonShow = true
         }
     }

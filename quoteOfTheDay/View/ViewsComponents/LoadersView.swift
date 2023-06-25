@@ -79,5 +79,48 @@ struct LoaderView_Previews: PreviewProvider {
         LoaderView()
         ContentLoaderView()
         SlidingLoaderView()
+        ShareButton()
+    }
+}
+
+
+struct ShareButton: View {
+    @State var isMoving: Bool = false
+    var body: some View {
+        ZStack {
+            BlobShape()
+                .foregroundColor(.blue)
+                .rotationEffect(Angle(degrees: isMoving ? 0 : 90))
+            
+            BlobShape()
+                .foregroundColor(.blue)
+                .rotationEffect(Angle(degrees: isMoving ? 160 : 45))
+            BlobShape()
+                .foregroundColor(.blue)
+                .rotationEffect(Angle(degrees: isMoving ? 120 : 270))
+            BlobShape()
+                .foregroundColor(.blue)
+                .rotationEffect(Angle(degrees: isMoving ? 0 : 180))
+
+        }.onAppear{
+            withAnimation(.easeInOut(duration: 6.0).repeatForever(autoreverses: true)) {
+                isMoving.toggle()
+            }
+        }
+    }
+}
+
+
+struct BlobShape: Shape {
+    func path(in rect: CGRect) -> Path {
+        var path = Path()
+        let width = rect.size.width
+        let height = rect.size.height
+        path.move(to: CGPoint(x: 0.77415*width, y: 0.18185*height))
+        path.addCurve(to: CGPoint(x: 0.00007*width, y: 0.48499*height), control1: CGPoint(x: 0.45688*width, y: -0.058*height), control2: CGPoint(x: -0.00374*width, y: -0.15127*height))
+        path.addCurve(to: CGPoint(x: 0.76078*width, y: 0.84476*height), control1: CGPoint(x: 0.00388*width, y: 1.12125*height), control2: CGPoint(x: 0.45879*width, y: 1.07295*height))
+        path.addCurve(to: CGPoint(x: 0.77415*width, y: 0.18185*height), control1: CGPoint(x: 1.06276*width, y: 0.61657*height), control2: CGPoint(x: 1.09143*width, y: 0.4217*height))
+        path.closeSubpath()
+        return path
     }
 }
