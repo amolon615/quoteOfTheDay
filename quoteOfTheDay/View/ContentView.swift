@@ -37,8 +37,7 @@ struct ContentView: View {
                               let errorSolution = vm.errorSolution {
                                router.navigate(to: .errorView(errorTitle: errorTitle, errorImage: errorImage, errorSolution: errorSolution))
                               }
-                       }) 
-                      
+                       })
                        
         }
                 
