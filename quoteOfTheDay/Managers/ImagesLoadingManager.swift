@@ -13,7 +13,6 @@ class ImageLoader {
     
     func loadImage() async throws -> Images? {
         guard let url = URL(string: "https://api.pexels.com/v1/curated?per_page=60") else {
-            print("bad error")
             throw ImageLoadingError.badUrl
         }
         var request = URLRequest(url: url)

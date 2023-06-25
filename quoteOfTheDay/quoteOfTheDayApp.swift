@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct quoteOfTheDayApp: App {
+    @StateObject var router = Router()
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(router)
         }
     }
 }

@@ -27,7 +27,7 @@ struct ContentView: View {
                                    .environmentObject(imagesVM)
                            }
                        }
-                       .navigationTitle("Quotes")
+                       .navigationTitle("Quotly")
                        .environmentObject(vm)
                        .environmentObject(imagesVM)
                        .toolbar {  ToolbarItem(placement: .navigationBarTrailing) { Text("Page: \(vm.currentPage)")}}
@@ -38,9 +38,7 @@ struct ContentView: View {
                                router.navigate(to: .errorView(errorTitle: errorTitle, errorImage: errorImage, errorSolution: errorSolution))
                               }
                        })
-                       
         }
-                
                    .environmentObject(router)
     }
 }

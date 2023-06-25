@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+//performing navigation to detail quote view injecting quote id
+//performing handling errors
 final class Router: ObservableObject {
     @Published var navPath = NavigationPath()
     

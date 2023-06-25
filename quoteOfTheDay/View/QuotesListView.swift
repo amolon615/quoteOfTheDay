@@ -22,6 +22,7 @@ struct QuotesList: View {
                             .onTapGesture { router.navigate(to: .detailedQuoteView(authorId: String(quote.id)))}
                     }
             }
+            //prev & next page buttons
             .overlay (
                 VStack {
                     Spacer()
@@ -68,12 +69,12 @@ struct QuotesList: View {
     }
 }
 
-
 struct QuotesList_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
     }
 }
+
 
 
 

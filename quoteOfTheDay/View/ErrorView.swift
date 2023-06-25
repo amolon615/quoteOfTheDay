@@ -19,7 +19,7 @@ struct ErrorView: View {
             Color.black.ignoresSafeArea()
             VStack (spacing: 50){
                 VStack {
-                    Text("Error title: \(errorTitle ?? "error title placeholder")")
+                    Text("Error: \(errorTitle ?? "error title placeholder")")
                         .foregroundColor(.red)
                     Text("Solution: \(errorSolution ?? "error solution placeholder")")
                         .foregroundColor(.red)

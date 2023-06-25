@@ -48,7 +48,7 @@ class QuotesViewModel: ObservableObject {
                 }
     }
 
-    //switch pages, constracting our URL
+    //switch pages, constructing our URL
     private func pickPage() -> String {
         switch pageNumb {
         case 0:
@@ -113,7 +113,7 @@ class QuotesViewModel: ObservableObject {
                 self.retryButtonShow = true
             case .badDecoding:
                 self.errorTitle = "Bad Decoding."
-                self.errorSolution = "Check data-models types & structure."
+                self.errorSolution = "Contact developer to check data-models types & structure."
                 self.errorImage = "unicorn_black"
                 self.retryButtonShow = false
             case .badLoading:
@@ -133,17 +133,16 @@ class QuotesViewModel: ObservableObject {
     
     //fetching data and loading
     func loadData(withID id: String? = nil) {
-        withAnimation(.easeInOut(duration: 1.5)){
+        withAnimation(.easeInOut(duration: 1.0)){
             self.quotesDidLoad = false
         }
         Task {
                 await fetchData(withID: id)
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1.5 ) {
-                    self.animateChanges {
-                        self.quotesDidLoad = true
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5 ) {
+                withAnimation(.easeInOut(duration: 1.0)) {
+                    self.quotesDidLoad = true
                     }
                 }
-            
         }
     }
     

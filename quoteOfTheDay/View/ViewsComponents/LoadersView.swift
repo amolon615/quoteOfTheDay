@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct LoaderView: View {
-    @State private var circleSize: CGFloat = 500
+       @State private var circleSize: CGFloat = 500
        @State private var isAnimating = false
     
     var body: some View {
@@ -18,7 +18,7 @@ struct LoaderView: View {
                 .scaleEffect(isAnimating ? 4.0 : 1.0)
                 .opacity(isAnimating ? 0.0 : 1.0)
                 .onAppear {
-                    withAnimation(.easeInOut(duration: 1.0).repeatForever(autoreverses: true)){
+                    withAnimation(.easeInOut(duration: 1.5).repeatForever(autoreverses: true)){
                         self.isAnimating = true
                     }
                 }

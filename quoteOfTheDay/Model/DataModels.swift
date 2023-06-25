@@ -24,7 +24,6 @@ struct Quote: Codable, Identifiable, Hashable {
 }
 //------------------Quotes-End----------------------//
 
-
 //------------------Errors-Start----------------------//
 
 //Quote errors
