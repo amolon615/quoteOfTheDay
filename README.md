@@ -1,6 +1,8 @@
 # QUOTLY
 The app for showing quotes
 
+![alt text]([http://url/to/img.png](https://github.com/amolon615/quoteOfTheDay/blob/main/github_cover.png?raw=true))
+
 Short prject overview:
 1. Quotly is build 100% in clean SwiftUI. All requests handled with native Swift instrument (URLSession).
 2. Pexels (free images database) was integrated to fetch images for UI improvements. Integration is also 100% native using same URLSession api. (see ImagesLoadingManager for details and comments)
