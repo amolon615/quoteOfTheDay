@@ -38,7 +38,6 @@ class ImageLoader {
             let fetchedImages = try decoder.decode(Images.self, from: data)
             return fetchedImages
         } catch let error {
-            print("Error decoding images: \(error)")
             return nil
         }
     }

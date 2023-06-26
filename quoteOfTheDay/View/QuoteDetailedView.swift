@@ -10,10 +10,13 @@ import SwiftUI
 
 struct DetailedQuoteView: View {
     @EnvironmentObject var vm: QuotesViewModel
-    @ObservedObject var qmVM = QuoteViewModel()
+    @StateObject var qmVM = QuoteViewModel()
     
     //passing author ID to perform a new fetch
     var authorId: String
+       
+  
+    
     
     @State var isLoading = true
        var body: some View {
@@ -35,33 +38,30 @@ struct DetailedQuoteView: View {
                            }
                                .frame(width: 60, height: 60)
                        }
-                           
-
                    }
                    .padding()
-                    .frame(maxWidth: UIScreen.main.bounds.width * 0.9, maxHeight: .infinity)
+                   .frame(maxWidth: UIScreen.main.bounds.width * 0.9, maxHeight: .infinity)
                    .fixedSize(horizontal: false, vertical: true)
                    .background(
                     .ultraThinMaterial
                    )
                    .cornerRadius(20)
                    .onDisappear {
-                       //cleaning fetched quote on closing the view, so next time loader will appear and new selcted quoted will download
+                       //cleaning fetched quote on closing the view, so next time loader will appear and new selected quoted will download
                        vm.quote = nil
                    }
                    
                }
                .onAppear {
-                   let viewToImage = quoteCard.environmentObject(vm)
-                       qmVM.Save(view: viewToImage)
+                   qmVM.save(view: quoteCard)
                    
                }
            } else {
                SlidingLoaderView().ignoresSafeArea()
                    .onAppear {
-                       //fetching selected quote by passing author id
-                        vm.loadData(withID: authorId) 
                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                           //fetching selected quote by passing author id
+                           vm.loadData(withID: authorId)
                            withAnimation(.easeOut(duration: 1.5)){
                                self.isLoading = false
                            }
@@ -72,6 +72,7 @@ struct DetailedQuoteView: View {
     
         //sharing quote card (removed sharing button)
     var quoteCard: some View {
+        
             ZStack {
                 GradientBackgroundView()
                 VStack (alignment: .center, spacing: 50){
@@ -99,5 +100,12 @@ struct DetailedQuoteView_Previews: PreviewProvider {
         DetailedQuoteView(authorId: "1")
             .environmentObject(QuotesViewModel())
             .environmentObject(ImagesViewModel())
+    }
+}
+
+
+struct TestView: View {
+    var body: some View {
+        Color.red.ignoresSafeArea()
     }
 }
