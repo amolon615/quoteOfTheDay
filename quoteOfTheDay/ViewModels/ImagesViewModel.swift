@@ -20,6 +20,7 @@ class ImagesViewModel: ObservableObject {
     //array of Photo objects. Each object contain Src property, which hold all image qualities. In our case I fetch only 1 image quality.
     @Published var fetchedPhotos: [Photo]? = nil
     
+    //buffer array to collect all images without pushing @Published array each time one url is added. Only when the whole array is populated with urls - we put it's value to our @Published fetchedPhotos array
     var bufferPhotosArray: [String] = []
     
     @Published var imagesDidLoad: Bool = false
@@ -34,7 +35,7 @@ class ImagesViewModel: ObservableObject {
                 self.fetchedPhotos = loadedImagesPexel?.photos
                 guard let fetchedPhotos = self.fetchedPhotos else { return }
                 //loading 50 image urls
-                for i in 0...50 {
+                for i in 0...40 {
                     let fetchedPhoto = fetchedPhotos[i].src.landscape
                     guard let unwrappedURLPhoto =  fetchedPhoto else { return }
                     self.bufferPhotosArray.append(unwrappedURLPhoto)

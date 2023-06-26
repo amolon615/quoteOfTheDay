@@ -36,7 +36,7 @@ class QuotesViewModel: ObservableObject {
     //navigation direction selector
     func getDirection(direction: String) {
         if direction == "forward" {
-                if pageNumb < 2 {
+                if pageNumb < 3 {
                     pageNumb += 1
                     } else {
                         pageNumb = 0
@@ -45,7 +45,7 @@ class QuotesViewModel: ObservableObject {
                     if pageNumb > 0 {
                         pageNumb -= 1
                     } else {
-                        pageNumb = 2
+                        pageNumb = 3
                     }
                 }
     }
@@ -66,7 +66,15 @@ class QuotesViewModel: ObservableObject {
                     self.currentPage = 2
                 }
             }
-            return "?skip=50"
+            return "?skip=30"
+        case 2:
+            DispatchQueue.main.async {
+                self.animateChanges {
+                    self.currentPage = 3
+                }
+            }
+            return "?skip=60"
+        
         default:
             DispatchQueue.main.async {
                 self.animateChanges {
