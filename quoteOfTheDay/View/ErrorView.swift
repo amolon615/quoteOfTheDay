@@ -59,7 +59,7 @@ struct ErrorView: View {
                     vm.errorTitle = nil
                     vm.errorImage = nil
                     vm.errorSolution = nil
-                    router.navigateBack()
+                    router.navigateToRoot()
                 } label: {
                     Text("Tap to re-try")
                 }

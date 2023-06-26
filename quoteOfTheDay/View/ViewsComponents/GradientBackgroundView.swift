@@ -7,6 +7,9 @@
 
 import SwiftUI
 
+
+//Animated background gradient for some views
+
 struct GradientBackgroundView: View {
     @State private var rotate: Bool = false
     var body: some View {

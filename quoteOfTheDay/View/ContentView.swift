@@ -31,13 +31,13 @@ struct ContentView: View {
                        .environmentObject(vm)
                        .environmentObject(imagesVM)
                        .toolbar {  ToolbarItem(placement: .navigationBarTrailing) { Text("Page: \(vm.currentPage)")}}
-                       .onChange(of: vm.errorTitle, perform: { newValue in
-                           if let errorTitle = vm.errorTitle,
-                              let errorImage = vm.errorImage,
-                              let errorSolution = vm.errorSolution {
-                               router.navigate(to: .errorView(errorTitle: errorTitle, errorImage: errorImage, errorSolution: errorSolution))
-                              }
-                       })
+                       .onChange(of: vm.errorTitle) { newValue in
+                               if let errorTitle = vm.errorTitle,
+                                  let errorImage = vm.errorImage,
+                                  let errorSolution = vm.errorSolution {
+                                   router.navigate(to: .errorView(errorTitle: errorTitle, errorImage: errorImage, errorSolution: errorSolution))
+                               }
+                       }
         }
                    .environmentObject(router)
     }

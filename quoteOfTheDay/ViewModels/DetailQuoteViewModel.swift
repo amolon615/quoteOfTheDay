@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-//controlling the detailed quote, allowing to construct a card for sharing, making a snapshot
-class QuoteManager: ObservableObject {
+//controlling the detailed quote, allowing to construct a card for sharing button and making a snapshot
+class QuoteViewModel: ObservableObject {
      let cgWidth: CGFloat = UIScreen.main.bounds.width
      let cgHeight: CGFloat = UIScreen.main.bounds.height
         

@@ -7,6 +7,11 @@
 
 import SwiftUI
 
+
+//Images are async, drawing by passing in an url, fetched from the pexels curated list objects.
+
+
+
 struct CellView: View {
     var imageNum: String?
     var quoteText: String

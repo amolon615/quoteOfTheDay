@@ -9,8 +9,8 @@ import SwiftUI
 
 
 class QuotesViewModel: ObservableObject {
-    var manager = DataManager()
-    var router = Router()
+    private var manager = DataManager()
+    private var router = Router()
     
     //data objects
     @Published var quotes: Quotes? = nil
@@ -93,7 +93,6 @@ class QuotesViewModel: ObservableObject {
         } catch let error {
             DispatchQueue.main.async {
                 self.handleFetchDataError(error)
-                print(error)
             }
         }
     }
@@ -139,7 +138,7 @@ class QuotesViewModel: ObservableObject {
         Task {
                 await fetchData(withID: id)
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.5 ) {
-                withAnimation(.easeInOut(duration: 1.0)) {
+                withAnimation(.easeInOut(duration: 1.5)) {
                     self.quotesDidLoad = true
                     }
                 }
