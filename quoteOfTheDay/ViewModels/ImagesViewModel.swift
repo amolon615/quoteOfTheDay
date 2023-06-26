@@ -13,8 +13,15 @@ class ImagesViewModel: ObservableObject {
     var router = Router()
     
     @Published var imageLoadingError: ImageLoadingError? = nil
+    
+    //array of url of images, to be displayed in AsyncImages in cells
     @Published var imageURLs: [String] = []
+    
+    //array of Photo objects. Each object contain Src property, which hold all image qualities. In our case I fetch only 1 image quality.
     @Published var fetchedPhotos: [Photo]? = nil
+    
+    var bufferPhotosArray: [String] = []
+    
     @Published var imagesDidLoad: Bool = false
     
 
@@ -30,8 +37,9 @@ class ImagesViewModel: ObservableObject {
                 for i in 0...50 {
                     let fetchedPhoto = fetchedPhotos[i].src.landscape
                     guard let unwrappedURLPhoto =  fetchedPhoto else { return }
-                    self.imageURLs.append(unwrappedURLPhoto)
+                    self.bufferPhotosArray.append(unwrappedURLPhoto)
                 }
+                self.imageURLs = self.bufferPhotosArray
             }
         } catch let error as ImageLoadingError {
             DispatchQueue.main.async {
@@ -49,8 +57,10 @@ class ImagesViewModel: ObservableObject {
         Task {
             do {
                 DispatchQueue.main.async {
-                    withAnimation(.easeInOut(duration: 1.0)){
-                        self.imagesDidLoad = false
+                    if self.imagesDidLoad == true {
+                        withAnimation(.easeInOut(duration: 1.0)){
+                            self.imagesDidLoad = false
+                        }
                     }
                 }
                 try await fetchImage()

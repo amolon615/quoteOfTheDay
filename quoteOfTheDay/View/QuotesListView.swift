@@ -18,10 +18,12 @@ struct QuotesList: View {
     var body: some View {
         if imagesVM.imagesDidLoad && vm.quotesDidLoad == true {
             ScrollView (showsIndicators: false) {
-                    ForEach(Array(vm.quotes!.quotes.enumerated()), id:\.element) { index, quote in
-                        CellView(imageNum: imagesVM.imageURLs[index], quoteText: quote.quote)
-                                .onTapGesture { router.navigate(to: .detailedQuoteView(authorId: String(quote.id)))}
-                }
+                    LazyVStack {
+                        ForEach(Array(vm.quotes!.quotes.enumerated()), id:\.element) { index, quote in
+                            CellView(imageNum: imagesVM.imageURLs[index], quoteText: quote.quote)
+                                    .onTapGesture { router.navigate(to: .detailedQuoteView(authorId: String(quote.id)))}
+                    }
+                    }
             }
             //prev & next page buttons
             .overlay ( quotesButtonOverlay )

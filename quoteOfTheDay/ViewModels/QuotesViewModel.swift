@@ -20,6 +20,8 @@ class QuotesViewModel: ObservableObject {
     @Published var errorTitle: String? = nil
     @Published var errorImage: String? = nil
     @Published var errorSolution: String? = nil
+    
+    
     @Published var retryButtonShow: Bool = true
     
     //page controls
@@ -27,7 +29,7 @@ class QuotesViewModel: ObservableObject {
     @Published var limitNub: Int = 10
     @Published var currentPage: Int = 1
     
-    //loading state
+    //quotes state for controlling loader view and perform load ops
     @Published var quotesDidLoad: Bool = false
     
 
@@ -97,6 +99,11 @@ class QuotesViewModel: ObservableObject {
         }
     }
     
+    
+    //In case of this app not each have actionable solution. For the final app all cases where user can't fix anything (badDecoding, badURL, badLoading) button should allow to contact developer.
+    //These cases could occure if 3rd party servers like dummyJSON or pexels change their JSON schema.
+    //For the errors like connection issues it's might be handy to allow user to reload the data, what I did.
+    
     private func handleFetchDataError(_ error: Error) {
         if let quoteLoadingError = error as? QuoteLoadingError {
             switch quoteLoadingError {
@@ -132,8 +139,10 @@ class QuotesViewModel: ObservableObject {
     
     //fetching data and loading
     func loadData(withID id: String? = nil) {
+        if self.quotesDidLoad == true {
         withAnimation(.easeInOut(duration: 1.0)){
-            self.quotesDidLoad = false
+                self.quotesDidLoad = false
+            }
         }
         Task {
                 await fetchData(withID: id)

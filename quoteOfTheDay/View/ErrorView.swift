@@ -7,6 +7,11 @@
 
 import SwiftUI
 
+//The error view displays the error title and possible solution
+//Because user doesn't have access to source code (obviously :D), I removed retry-button for the cases when url is bad or decoding is failed,
+//because such cases might occure only when servers change their JSON schema or API URL. For that cases I would add contact-developer button later.
+//For cases when internet-connection issues could be a problem - retry button can help.
+
 struct ErrorView: View {
     @EnvironmentObject var vm: QuotesViewModel
     @EnvironmentObject var router: Router
@@ -61,7 +66,7 @@ struct ErrorView: View {
                     vm.errorSolution = nil
                     router.navigateToRoot()
                 } label: {
-                    Text("Tap to re-try")
+                    Text("Tap to Retry")
                 }
                 .padding()
                 .foregroundColor(.white)
