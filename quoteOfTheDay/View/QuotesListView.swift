@@ -23,7 +23,6 @@ struct QuotesList: View {
                             CellView(imageNum: imagesVM.imageURLs[index], quoteText: quote.quote)
                                     .onTapGesture { router.navigate(to: .detailedQuoteView(authorId: String(quote.id)))}
                     }
-                    
             }
             //prev & next page buttons
             .overlay ( quotesButtonOverlay )
@@ -35,7 +34,6 @@ struct QuotesList: View {
                             }
                 }
     }
-    
     
     //page buttons overlay
     private var quotesButtonOverlay: some View {

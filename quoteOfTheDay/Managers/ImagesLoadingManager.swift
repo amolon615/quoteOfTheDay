@@ -37,7 +37,7 @@ class ImageLoader {
             decoder.keyDecodingStrategy = .convertFromSnakeCase
             let fetchedImages = try decoder.decode(Images.self, from: data)
             return fetchedImages
-        } catch let error {
+        } catch _ {
             return nil
         }
     }

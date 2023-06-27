@@ -14,11 +14,10 @@ struct DetailedQuoteView: View {
     
     //passing author ID to perform a new fetch
     var authorId: String
-       
-  
-    
-    
+
     @State var isLoading = true
+    
+    
        var body: some View {
            //
            if let quote = vm.quote, isLoading == false {

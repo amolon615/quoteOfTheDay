@@ -15,6 +15,7 @@ final class Router: ObservableObject {
     public enum Destination: Codable, Hashable {
         case detailedQuoteView(authorId: String)
         case errorView(errorTitle: String?, errorImage: String?, errorSolution: String?)
+        case settingsView
     }
     
   

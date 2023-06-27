@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @ObservedObject var router = Router()
+    @EnvironmentObject var router: Router
     @StateObject var vm = QuotesViewModel()
     @StateObject var imagesVM = ImagesViewModel()
  
@@ -25,12 +25,18 @@ struct ContentView: View {
                                ErrorView(errorTitle: vm.errorTitle, errorImage: vm.errorImage, errorSolution: vm.errorSolution)
                                    .environmentObject(vm)
                                    .environmentObject(imagesVM)
+                           case .settingsView:
+                               SettingsView()
+                                   
                            }
                        }
                        .navigationTitle("Quotly")
                        .environmentObject(vm)
                        .environmentObject(imagesVM)
-                       .toolbar {  ToolbarItem(placement: .navigationBarTrailing) { Text("Page: \(vm.currentPage)")}}
+                       .toolbar {
+                           ToolbarItem(placement: .navigationBarTrailing) { Text("Page: \(vm.currentPage)")}
+                           ToolbarItem(placement: .navigationBarLeading) {Button { router.navigate(to: .settingsView)} label: { Image(systemName: "bookmark")}}
+                        }
                        .onChange(of: vm.errorTitle) { newValue in
                                if let errorTitle = vm.errorTitle,
                                   let errorImage = vm.errorImage,
@@ -45,6 +51,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView().environmentObject(Router())
     }
 }

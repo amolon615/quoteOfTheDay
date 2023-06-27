@@ -11,6 +11,7 @@
 		ACAEA6172A48B86400ECA7E4 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAEA6162A48B86400ECA7E4 /* Extensions.swift */; };
 		ACAEA6192A48B88400ECA7E4 /* DetailQuoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAEA6182A48B88400ECA7E4 /* DetailQuoteViewModel.swift */; };
 		ACAEA61C2A4991C900ECA7E4 /* ShapesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAEA61B2A4991C900ECA7E4 /* ShapesView.swift */; };
+		ACAEA62A2A4A34CD00ECA7E4 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAEA6292A4A34CD00ECA7E4 /* SettingsView.swift */; };
 		ACC946CF2A462109002270F5 /* quoteOfTheDayApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC946CE2A462109002270F5 /* quoteOfTheDayApp.swift */; };
 		ACC946D12A462109002270F5 /* QuotesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC946D02A462109002270F5 /* QuotesListView.swift */; };
 		ACC946D32A46210A002270F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACC946D22A46210A002270F5 /* Assets.xcassets */; };
@@ -33,6 +34,7 @@
 		ACAEA6162A48B86400ECA7E4 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		ACAEA6182A48B88400ECA7E4 /* DetailQuoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailQuoteViewModel.swift; sourceTree = "<group>"; };
 		ACAEA61B2A4991C900ECA7E4 /* ShapesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapesView.swift; sourceTree = "<group>"; };
+		ACAEA6292A4A34CD00ECA7E4 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		ACC946CB2A462109002270F5 /* quoteOfTheDay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = quoteOfTheDay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACC946CE2A462109002270F5 /* quoteOfTheDayApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = quoteOfTheDayApp.swift; sourceTree = "<group>"; };
 		ACC946D02A462109002270F5 /* QuotesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesListView.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				ACC946D02A462109002270F5 /* QuotesListView.swift */,
 				ACC946EF2A4636A2002270F5 /* QuoteDetailedView.swift */,
 				ACC946F12A4636C4002270F5 /* ErrorView.swift */,
+				ACAEA6292A4A34CD00ECA7E4 /* SettingsView.swift */,
 				ACC946ED2A46366D002270F5 /* ViewsComponents */,
 			);
 			path = View;
@@ -243,6 +246,7 @@
 				ACC946E02A4621AF002270F5 /* DataModels.swift in Sources */,
 				ACC946E22A4624B3002270F5 /* LoadersView.swift in Sources */,
 				ACAEA6192A48B88400ECA7E4 /* DetailQuoteViewModel.swift in Sources */,
+				ACAEA62A2A4A34CD00ECA7E4 /* SettingsView.swift in Sources */,
 				ACC946FE2A47136E002270F5 /* ImagesLoadingManager.swift in Sources */,
 				ACC946E42A4635E4002270F5 /* Router.swift in Sources */,
 				ACC946E62A463617002270F5 /* QuotesViewModel.swift in Sources */,
