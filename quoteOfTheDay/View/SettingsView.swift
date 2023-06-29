@@ -18,7 +18,7 @@ struct SettingsView: View {
                 Text("go back")
                     .foregroundColor(.white)
             }
-
+            
         }
     }
 }

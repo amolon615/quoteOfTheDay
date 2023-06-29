@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC6DB6102A4D957100907CB7 /* QuotesDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6DB60F2A4D957100907CB7 /* QuotesDataModel.swift */; };
+		AC6DB6122A4D958500907CB7 /* QuoteDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6DB6112A4D958500907CB7 /* QuoteDataModel.swift */; };
+		AC6DB6142A4D95BA00907CB7 /* ImagesDataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6DB6132A4D95BA00907CB7 /* ImagesDataModels.swift */; };
 		ACAEA5F82A47781000ECA7E4 /* GradientBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAEA5F72A47781000ECA7E4 /* GradientBackgroundView.swift */; };
 		ACAEA6172A48B86400ECA7E4 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAEA6162A48B86400ECA7E4 /* Extensions.swift */; };
 		ACAEA6192A48B88400ECA7E4 /* DetailQuoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAEA6182A48B88400ECA7E4 /* DetailQuoteViewModel.swift */; };
@@ -16,7 +19,7 @@
 		ACC946D12A462109002270F5 /* QuotesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC946D02A462109002270F5 /* QuotesListView.swift */; };
 		ACC946D32A46210A002270F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACC946D22A46210A002270F5 /* Assets.xcassets */; };
 		ACC946D72A46210A002270F5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACC946D62A46210A002270F5 /* Preview Assets.xcassets */; };
-		ACC946E02A4621AF002270F5 /* DataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC946DF2A4621AF002270F5 /* DataModels.swift */; };
+		ACC946E02A4621AF002270F5 /* ErrorModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC946DF2A4621AF002270F5 /* ErrorModels.swift */; };
 		ACC946E22A4624B3002270F5 /* LoadersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC946E12A4624B3002270F5 /* LoadersView.swift */; };
 		ACC946E42A4635E4002270F5 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC946E32A4635E4002270F5 /* Router.swift */; };
 		ACC946E62A463617002270F5 /* QuotesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC946E52A463617002270F5 /* QuotesViewModel.swift */; };
@@ -30,6 +33,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AC6DB60F2A4D957100907CB7 /* QuotesDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesDataModel.swift; sourceTree = "<group>"; };
+		AC6DB6112A4D958500907CB7 /* QuoteDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteDataModel.swift; sourceTree = "<group>"; };
+		AC6DB6132A4D95BA00907CB7 /* ImagesDataModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesDataModels.swift; sourceTree = "<group>"; };
 		ACAEA5F72A47781000ECA7E4 /* GradientBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientBackgroundView.swift; sourceTree = "<group>"; };
 		ACAEA6162A48B86400ECA7E4 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		ACAEA6182A48B88400ECA7E4 /* DetailQuoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailQuoteViewModel.swift; sourceTree = "<group>"; };
@@ -41,7 +47,7 @@
 		ACC946D22A46210A002270F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ACC946D42A46210A002270F5 /* quoteOfTheDay.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = quoteOfTheDay.entitlements; sourceTree = "<group>"; };
 		ACC946D62A46210A002270F5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		ACC946DF2A4621AF002270F5 /* DataModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModels.swift; sourceTree = "<group>"; };
+		ACC946DF2A4621AF002270F5 /* ErrorModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorModels.swift; sourceTree = "<group>"; };
 		ACC946E12A4624B3002270F5 /* LoadersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadersView.swift; sourceTree = "<group>"; };
 		ACC946E32A4635E4002270F5 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		ACC946E52A463617002270F5 /* QuotesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesViewModel.swift; sourceTree = "<group>"; };
@@ -131,7 +137,10 @@
 		ACC946EA2A46364C002270F5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				ACC946DF2A4621AF002270F5 /* DataModels.swift */,
+				AC6DB60F2A4D957100907CB7 /* QuotesDataModel.swift */,
+				AC6DB6112A4D958500907CB7 /* QuoteDataModel.swift */,
+				AC6DB6132A4D95BA00907CB7 /* ImagesDataModels.swift */,
+				ACC946DF2A4621AF002270F5 /* ErrorModels.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -243,11 +252,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ACC946E02A4621AF002270F5 /* DataModels.swift in Sources */,
+				ACC946E02A4621AF002270F5 /* ErrorModels.swift in Sources */,
 				ACC946E22A4624B3002270F5 /* LoadersView.swift in Sources */,
 				ACAEA6192A48B88400ECA7E4 /* DetailQuoteViewModel.swift in Sources */,
+				AC6DB6102A4D957100907CB7 /* QuotesDataModel.swift in Sources */,
 				ACAEA62A2A4A34CD00ECA7E4 /* SettingsView.swift in Sources */,
 				ACC946FE2A47136E002270F5 /* ImagesLoadingManager.swift in Sources */,
+				AC6DB6142A4D95BA00907CB7 /* ImagesDataModels.swift in Sources */,
 				ACC946E42A4635E4002270F5 /* Router.swift in Sources */,
 				ACC946E62A463617002270F5 /* QuotesViewModel.swift in Sources */,
 				ACC946F02A4636A2002270F5 /* QuoteDetailedView.swift in Sources */,
@@ -258,6 +269,7 @@
 				ACC946F82A467411002270F5 /* CellView.swift in Sources */,
 				ACAEA6172A48B86400ECA7E4 /* Extensions.swift in Sources */,
 				ACAEA5F82A47781000ECA7E4 /* GradientBackgroundView.swift in Sources */,
+				AC6DB6122A4D958500907CB7 /* QuoteDataModel.swift in Sources */,
 				ACC946F42A463871002270F5 /* ContentView.swift in Sources */,
 				ACC946F22A4636C4002270F5 /* ErrorView.swift in Sources */,
 				ACC946E82A463638002270F5 /* QuotesLoadingManager.swift in Sources */,

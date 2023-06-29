@@ -16,6 +16,9 @@ class QuotesViewModel: ObservableObject {
     @Published var quotes: Quotes? = nil
     @Published var quote: Quote? = nil
     
+    
+    @Published var quotesList: [Quote]  = []
+    
     //error handling
     @Published var errorTitle: String? = nil
     @Published var errorImage: String? = nil
@@ -27,77 +30,36 @@ class QuotesViewModel: ObservableObject {
     //page controls
     @Published var pageNumb: Int = 0
     @Published var limitNub: Int = 10
-    @Published var currentPage: Int = 1
+    @Published var currentPage: Int = 0
     
     //quotes state for controlling loader view and perform load ops
     @Published var quotesDidLoad: Bool = false
     
-
-    //navigation direction selector
-    func getDirection(direction: String) {
-        if direction == "forward" {
-                if pageNumb < 3 {
-                    pageNumb += 1
-                    } else {
-                        pageNumb = 0
-                    }
-                } else {
-                    if pageNumb > 0 {
-                        pageNumb -= 1
-                    } else {
-                        pageNumb = 3
-                    }
-                }
-    }
-
+    
     //switch pages, constructing our URL
     private func pickPage() -> String {
-        switch pageNumb {
-        case 0:
-            DispatchQueue.main.async {
-                self.animateChanges {
-                    self.currentPage = 1
-                }
-            }
-            return "?skip=0"
-        case 1:
-            DispatchQueue.main.async {
-                self.animateChanges {
-                    self.currentPage = 2
-                }
-            }
-            return "?skip=30"
-        case 2:
-            DispatchQueue.main.async {
-                self.animateChanges {
-                    self.currentPage = 3
-                }
-            }
-            return "?skip=60"
-        
-        default:
-            DispatchQueue.main.async {
-                self.animateChanges {
-                    self.currentPage = 1
-                }
-            }
-            return "?skip=0"
+        let skipValue = quotesList.count
+        DispatchQueue.main.async {
+                self.currentPage += 1
         }
+        return "?skip=\(skipValue)"
     }
     
     
-   //fetch data function, works for both fetching 1 quote by id (nil by default) and all quotes
+    //fetch data function, works for both fetching 1 quote by id (nil by default) and all quotes
     private func fetchData(withID id: String? = nil) async {
         do {
             if let quoteID = id {
                 let fetchedQuote: Quote = try await manager.fetchData(url: "https://dummyjson.com/quotes/", paramId: quoteID)
                 DispatchQueue.main.async {
                     self.quote = fetchedQuote
+                    print("one quote downloaded")
                 }
             } else {
                 let fetchedQuotes: Quotes = try await manager.fetchData(url: "https://dummyjson.com/quotes/", page: pickPage())
                 DispatchQueue.main.async {
-                    self.quotes = fetchedQuotes
+                    self.quotesList.append(contentsOf: fetchedQuotes.quotes)
+                    print("quotes downloaded")
                 }
             }
         } catch let error {
@@ -144,28 +106,13 @@ class QuotesViewModel: ObservableObject {
         }
     }
     
+
+    
     
     //fetching data and loading
     func loadData(withID id: String? = nil) {
-        if self.quotesDidLoad == true {
-        withAnimation(.easeInOut(duration: 1.0)){
-                self.quotesDidLoad = false
-            }
-        }
         Task {
-                await fetchData(withID: id)
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5 ) {
-                withAnimation(.easeInOut(duration: 1.5)) {
-                    self.quotesDidLoad = true
-                    }
-                }
-        }
-    }
-    
-    //animation wrapper
-    private func animateChanges(_ object: @escaping () -> Void) {
-        withAnimation(.easeInOut(duration: 1.5)) {
-            object()
+            await fetchData(withID: id)
         }
     }
 }

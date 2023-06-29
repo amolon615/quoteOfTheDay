@@ -11,41 +11,37 @@ struct ContentView: View {
     @EnvironmentObject var router: Router
     @StateObject var vm = QuotesViewModel()
     @StateObject var imagesVM = ImagesViewModel()
- 
+    
     var body: some View {
         NavigationStack(path: $router.navPath) {
             QuotesList()
-                       .navigationDestination(for: Router.Destination.self) { destination in
-                           switch destination {
-                           case .detailedQuoteView(let id):
-                               DetailedQuoteView(authorId: id)
-                                   .environmentObject(vm)
-                                   .environmentObject(imagesVM)
-                           case .errorView(errorTitle: _):
-                               ErrorView(errorTitle: vm.errorTitle, errorImage: vm.errorImage, errorSolution: vm.errorSolution)
-                                   .environmentObject(vm)
-                                   .environmentObject(imagesVM)
-                           case .settingsView:
-                               SettingsView()
-                                   
-                           }
-                       }
-                       .navigationTitle("Quotly")
-                       .environmentObject(vm)
-                       .environmentObject(imagesVM)
-                       .toolbar {
-                           ToolbarItem(placement: .navigationBarTrailing) { Text("Page: \(vm.currentPage)")}
-                           ToolbarItem(placement: .navigationBarLeading) {Button { router.navigate(to: .settingsView)} label: { Image(systemName: "bookmark")}}
-                        }
-                       .onChange(of: vm.errorTitle) { newValue in
-                               if let errorTitle = vm.errorTitle,
-                                  let errorImage = vm.errorImage,
-                                  let errorSolution = vm.errorSolution {
-                                   router.navigate(to: .errorView(errorTitle: errorTitle, errorImage: errorImage, errorSolution: errorSolution))
-                               }
-                       }
+                .navigationDestination(for: Router.Destination.self) { destination in
+                    switch destination {
+                    case .detailedQuoteView(let id):
+                        DetailedQuoteView(authorId: id)
+                            .environmentObject(vm)
+                            .environmentObject(imagesVM)
+                    case .errorView(errorTitle: _):
+                        ErrorView(errorTitle: vm.errorTitle, errorImage: vm.errorImage, errorSolution: vm.errorSolution)
+                            .environmentObject(vm)
+                            .environmentObject(imagesVM)
+                    case .settingsView:
+                        SettingsView()
+                        
+                    }
+                }
+                .navigationTitle("Quotly")
+                .environmentObject(vm)
+                .environmentObject(imagesVM)
+                .onChange(of: vm.errorTitle) { newValue in
+                    if let errorTitle = vm.errorTitle,
+                       let errorImage = vm.errorImage,
+                       let errorSolution = vm.errorSolution {
+                        router.navigate(to: .errorView(errorTitle: errorTitle, errorImage: errorImage, errorSolution: errorSolution))
+                    }
+                }
         }
-                   .environmentObject(router)
+        .environmentObject(router)
     }
 }
 

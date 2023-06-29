@@ -15,6 +15,17 @@ import SwiftUI
 struct CellView: View {
     var imageNum: String?
     var quoteText: String
+    var quoteId: Int
+    
+    
+    //testing lazy-loading
+    init(imageNum: String? = nil, quoteText: String, quoteId: Int) {
+        self.imageNum = imageNum
+        self.quoteText = quoteText
+        self.quoteId = quoteId
+        print("quote \(self.quoteId) was loaded")
+    }
+    
     var body: some View {
         ZStack {
             Rectangle()
@@ -48,15 +59,33 @@ struct CellView: View {
                             .frame(width: 50, height: 50)
                     }
                 }
-
+                
                 .frame(width: UIScreen.main.bounds.width * 0.85, height: 200)
                 .scaledToFill()
                 .overlay(
-                    Color.black.opacity(0.4)
+                    ZStack {
+                        Color.black.opacity(0.4)
+                        VStack {
+                            HStack {
+                                ZStack {
+                                    Circle()
+                                        .frame(width: 25, height: 25)
+                                        .opacity(0.5)
+                                    Text("\(quoteId)")
+                                        .foregroundColor(.white.opacity(0.6))
+                                }
+                                .padding(.leading, 10)
+                                .padding(.top, 10)
+                                  
+                                Spacer()
+                            }
+                            Spacer()
+                        }
+                    }
                 )
                 .cornerRadius(10)
-
-               
+                
+                
             }
             Text("\(quoteText)")
                 .foregroundColor(.white)
@@ -64,13 +93,13 @@ struct CellView: View {
                 .padding()
                 .multilineTextAlignment(.center)
                 .frame(width: UIScreen.main.bounds.width * 0.7, height: 200)
-               
+            
         }
     }
 }
 
 struct CellView_Previews: PreviewProvider {
     static var previews: some View {
-        CellView(imageNum: "https://images.pexels.com/photos/17147165/pexels-photo-17147165.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200", quoteText: "Quote Placeholder")
+        CellView(imageNum: "https://images.pexels.com/photos/17147165/pexels-photo-17147165.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200", quoteText: "Quote Placeholder", quoteId: 1)
     }
 }

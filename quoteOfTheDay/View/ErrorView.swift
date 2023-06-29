@@ -30,32 +30,32 @@ struct ErrorView: View {
                         .foregroundColor(.red)
                 }
                 
-                    .multilineTextAlignment(.center)
-                    .foregroundColor(.white)
-                    .font(.system(size: 18, weight: .semibold, design: .rounded))
-                    .padding()
-                     .frame(maxWidth: UIScreen.main.bounds.width * 0.9, maxHeight: .infinity)
-                    .fixedSize(horizontal: false, vertical: true)
-                    .background(
-                     .ultraThinMaterial
-                    )
-                    .cornerRadius(20)
+                .multilineTextAlignment(.center)
+                .foregroundColor(.white)
+                .font(.system(size: 18, weight: .semibold, design: .rounded))
+                .padding()
+                .frame(maxWidth: UIScreen.main.bounds.width * 0.9, maxHeight: .infinity)
+                .fixedSize(horizontal: false, vertical: true)
+                .background(
+                    .ultraThinMaterial
+                )
+                .cornerRadius(20)
                 
                 Image(errorImage ?? "unicorn_black")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 200, height: 200)
-            
+                
                 
                 Text("An app without errors is like a unicorn on roller skates - it sounds magical, but it's just too good to be true.")
                     .multilineTextAlignment(.center)
                     .foregroundColor(.white)
                     .font(.system(size: 18, weight: .semibold, design: .rounded))
                     .padding()
-                     .frame(maxWidth: UIScreen.main.bounds.width * 0.9, maxHeight: .infinity)
+                    .frame(maxWidth: UIScreen.main.bounds.width * 0.9, maxHeight: .infinity)
                     .fixedSize(horizontal: false, vertical: true)
                     .background(
-                     .ultraThinMaterial
+                        .ultraThinMaterial
                     )
                     .cornerRadius(20)
                 
@@ -76,7 +76,7 @@ struct ErrorView: View {
                 .opacity(vm.retryButtonShow ? 1 : 0)
                 
             }
-
+            
         }.ignoresSafeArea()
             .navigationBarBackButtonHidden(true)
     }

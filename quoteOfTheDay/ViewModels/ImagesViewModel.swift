@@ -25,7 +25,7 @@ class ImagesViewModel: ObservableObject {
     
     @Published var imagesDidLoad: Bool = false
     
-
+    
     
     //fetching the list of curated images
     private func fetchImage() async throws {
@@ -34,8 +34,8 @@ class ImagesViewModel: ObservableObject {
             DispatchQueue.main.async {
                 self.fetchedPhotos = loadedImagesPexel?.photos
                 guard let fetchedPhotos = self.fetchedPhotos else { return }
-                //loading 50 image urls
-                for i in 0...40 {
+                print(fetchedPhotos.count)
+                for i in 0...59 {
                     let fetchedPhoto = fetchedPhotos[i].src.landscape
                     guard let unwrappedURLPhoto =  fetchedPhoto else { return }
                     self.bufferPhotosArray.append(unwrappedURLPhoto)
@@ -44,7 +44,7 @@ class ImagesViewModel: ObservableObject {
             }
         } catch let error as ImageLoadingError {
             DispatchQueue.main.async {
-                    self.imageLoadingError = error
+                self.imageLoadingError = error
             }
         } catch {
             DispatchQueue.main.async {
@@ -52,7 +52,7 @@ class ImagesViewModel: ObservableObject {
             }
         }
     }
-
+    
     //loading images
     func loadImages() {
         Task {
@@ -70,7 +70,7 @@ class ImagesViewModel: ObservableObject {
                         self.imagesDidLoad = true
                     }
                 }
-             
+                
             } catch {
                 DispatchQueue.main.async {
                     self.imageLoadingError = ImageLoadingError.badDecoding
