@@ -10,6 +10,7 @@
 		AC6DB6102A4D957100907CB7 /* QuotesDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6DB60F2A4D957100907CB7 /* QuotesDataModel.swift */; };
 		AC6DB6122A4D958500907CB7 /* QuoteDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6DB6112A4D958500907CB7 /* QuoteDataModel.swift */; };
 		AC6DB6142A4D95BA00907CB7 /* ImagesDataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6DB6132A4D95BA00907CB7 /* ImagesDataModels.swift */; };
+		AC6DB65F2A4F542300907CB7 /* DataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6DB65E2A4F542300907CB7 /* DataHandler.swift */; };
 		ACAEA5F82A47781000ECA7E4 /* GradientBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAEA5F72A47781000ECA7E4 /* GradientBackgroundView.swift */; };
 		ACAEA6172A48B86400ECA7E4 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAEA6162A48B86400ECA7E4 /* Extensions.swift */; };
 		ACAEA6192A48B88400ECA7E4 /* DetailQuoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAEA6182A48B88400ECA7E4 /* DetailQuoteViewModel.swift */; };
@@ -36,6 +37,7 @@
 		AC6DB60F2A4D957100907CB7 /* QuotesDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesDataModel.swift; sourceTree = "<group>"; };
 		AC6DB6112A4D958500907CB7 /* QuoteDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteDataModel.swift; sourceTree = "<group>"; };
 		AC6DB6132A4D95BA00907CB7 /* ImagesDataModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesDataModels.swift; sourceTree = "<group>"; };
+		AC6DB65E2A4F542300907CB7 /* DataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHandler.swift; sourceTree = "<group>"; };
 		ACAEA5F72A47781000ECA7E4 /* GradientBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientBackgroundView.swift; sourceTree = "<group>"; };
 		ACAEA6162A48B86400ECA7E4 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		ACAEA6182A48B88400ECA7E4 /* DetailQuoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailQuoteViewModel.swift; sourceTree = "<group>"; };
@@ -71,6 +73,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AC6DB6602A4F542E00907CB7 /* DataHandler */ = {
+			isa = PBXGroup;
+			children = (
+				AC6DB65E2A4F542300907CB7 /* DataHandler.swift */,
+			);
+			path = DataHandler;
+			sourceTree = "<group>";
+		};
 		ACAEA61A2A49917C00ECA7E4 /* Animations, Shapes */ = {
 			isa = PBXGroup;
 			children = (
@@ -100,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				ACC946CE2A462109002270F5 /* quoteOfTheDayApp.swift */,
+				AC6DB6602A4F542E00907CB7 /* DataHandler */,
 				ACC946EE2A463680002270F5 /* Router */,
 				ACC946EC2A463661002270F5 /* Managers */,
 				ACC946EA2A46364C002270F5 /* Model */,
@@ -264,6 +275,7 @@
 				ACC946F02A4636A2002270F5 /* QuoteDetailedView.swift in Sources */,
 				ACC946D12A462109002270F5 /* QuotesListView.swift in Sources */,
 				ACC946FA2A46F695002270F5 /* ImagesViewModel.swift in Sources */,
+				AC6DB65F2A4F542300907CB7 /* DataHandler.swift in Sources */,
 				ACC946CF2A462109002270F5 /* quoteOfTheDayApp.swift in Sources */,
 				ACAEA61C2A4991C900ECA7E4 /* ShapesView.swift in Sources */,
 				ACC946F82A467411002270F5 /* CellView.swift in Sources */,

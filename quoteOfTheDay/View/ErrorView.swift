@@ -60,7 +60,7 @@ struct ErrorView: View {
                     .cornerRadius(20)
                 
                 Button {
-                    vm.loadData()
+//                    vm.loadData()
                     vm.errorTitle = nil
                     vm.errorImage = nil
                     vm.errorSolution = nil

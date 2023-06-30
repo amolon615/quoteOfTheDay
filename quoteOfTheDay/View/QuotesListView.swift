@@ -30,9 +30,9 @@ struct QuotesList: View {
                                 .simultaneousGesture(
                                     DragGesture()
                                         .onChanged({ value in
-                                            if quote.id == vm.quotesList.last?.id {
-                                                vm.loadData()
-                                            }
+//                                            if quote.id == vm.quotesList.last?.id {
+//                                                vm.loadData()
+//                                            }
                                             
                                         })
                                 )
@@ -44,7 +44,7 @@ struct QuotesList: View {
         } else {
             LoaderView()
                 .onAppear {
-                    vm.loadData()
+                    vm.loadQuotes()
                     imagesVM.loadImages()
                 }
         }
