@@ -60,7 +60,7 @@ struct DetailedQuoteView: View {
                 .onAppear {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                         //fetching selected quote by passing author id
-//                        vm.loadData(withID: authorId)
+                        vm.loadQuote(dataHandler: MockDataSourceProtocol(), withID: authorId)
                         withAnimation(.easeOut(duration: 1.5)){
                             self.isLoading = false
                         }

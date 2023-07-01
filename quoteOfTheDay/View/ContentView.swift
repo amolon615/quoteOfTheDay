@@ -9,8 +9,9 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject var router: Router
-    @StateObject var vm = QuotesViewModel()
+    @StateObject var vm: QuotesViewModel = QuotesViewModel()
     @StateObject var imagesVM = ImagesViewModel()
+
     
     var body: some View {
         NavigationStack(path: $router.navPath) {
