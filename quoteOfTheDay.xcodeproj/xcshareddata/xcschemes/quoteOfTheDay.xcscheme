@@ -40,6 +40,17 @@
                ReferencedContainer = "container:quoteOfTheDay.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "AC6DB6642A50B54B00907CB7"
+               BuildableName = "quoteOfTheDayTests.xctest"
+               BlueprintName = "quoteOfTheDayTests"
+               ReferencedContainer = "container:quoteOfTheDay.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

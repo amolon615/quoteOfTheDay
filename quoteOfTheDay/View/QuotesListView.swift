@@ -44,7 +44,7 @@ struct QuotesList: View {
         } else {
             LoaderView()
                 .onAppear {
-                    vm.loadQuotes(dataHandler: MockDataSourceProtocol())
+                    vm.loadQuotes()
                     imagesVM.loadImages()
                 }
         }

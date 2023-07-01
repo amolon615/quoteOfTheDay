@@ -7,68 +7,6 @@
 
 import SwiftUI
 
-protocol DataSourceProtocol: AnyObject {
-    func fetchQuotes(pickPage: String) async -> Quotes?
-    func fetchQuote(withID id: String) async -> Quote?
-}
-
-class DataHandler: DataSourceProtocol {
-    private var manager = DataManager()
-    
-    func fetchQuotes(pickPage: String) async -> Quotes? {
-        do {
-            let fetchedQuotes: Quotes = try await manager.fetchData(url: "https://dummyjson.com/quotes/", page: pickPage)
-            return fetchedQuotes
-        } catch let error {
-            print("error: \(error)")
-            return nil
-        }
-    }
-    
-    func fetchQuote(withID id: String) async -> Quote? {
-        do {
-            let fetchedQuote: Quote = try await manager.fetchData(url: "https://dummyjson.com/quotes/", paramId: id)
-            return fetchedQuote
-        } catch let error {
-            print("error: \(error)")
-            return nil
-        }
-    }
-    
-    
-}
-
-
-class MockDataSourceProtocol: DataSourceProtocol {
-    func fetchQuotes(pickPage: String) async -> Quotes? {
-        do {
-            try await Task.sleep(nanoseconds: 5 * 1_000_000_000)  // Sleep for 5 seconds (5 * 1 billion nanoseconds)
-        } catch let error {
-            print("error: \(error)")
-        }
-        let quotesToTest = [
-            Quote(id: 1, quote: "First", author: "Artem"),
-            Quote(id: 2, quote: "Second", author: "Lena"),
-            Quote(id: 3, quote: "Third", author: "Alice")
-        ]
-        let QuoteTest = Quotes(quotes: quotesToTest, total: 10, skip: 0, limit: 3)
-        return QuoteTest
-    }
-    
-    
-    func fetchQuote(withID id: String) async -> Quote? {
-        do {
-            try await Task.sleep(nanoseconds: 5 * 1_000_000_000)
-        } catch let error {
-            print("error: \(error)")
-        }
-        let quoteToTest = Quote(id: 1, quote: "testQuote", author: "testAuthor")
-        return quoteToTest
-    }
-}
-
-
-
 
 
 class QuotesViewModel: ObservableObject {
@@ -95,11 +33,13 @@ class QuotesViewModel: ObservableObject {
     //quotes state for controlling loader view and perform load ops
     @Published var quotesDidLoad: Bool = false
     
+    var dataHandler: DataSourceProtocol
     
-    //switch pages, constructing our URL
+    init(dataHandler: DataSourceProtocol = DataHandler()) {
+        self.dataHandler = dataHandler
+    }
     
-    func loadQuotes(dataHandler: DataSourceProtocol = DataHandler() ) {
-        let dataHandler = dataHandler
+    func loadQuotes() {
         Task {
             let fetchdQuotesList = await dataHandler.fetchQuotes(pickPage: self.pickPage())
             guard let fetchdQuotesListUnwrapped = fetchdQuotesList else { return }
@@ -109,8 +49,7 @@ class QuotesViewModel: ObservableObject {
         }
     }
     
-    func loadQuote(dataHandler: DataSourceProtocol = DataHandler() , withID id: String) {
-        let dataHandler = dataHandler
+    func loadQuote(withID id: String) {
         Task {
             let fetchedQuote = await dataHandler.fetchQuote(withID: id)
             guard let fetchedQuoteUnwrapped = fetchedQuote else { return }

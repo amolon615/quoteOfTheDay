@@ -11,6 +11,8 @@
 		AC6DB6122A4D958500907CB7 /* QuoteDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6DB6112A4D958500907CB7 /* QuoteDataModel.swift */; };
 		AC6DB6142A4D95BA00907CB7 /* ImagesDataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6DB6132A4D95BA00907CB7 /* ImagesDataModels.swift */; };
 		AC6DB65F2A4F542300907CB7 /* DataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6DB65E2A4F542300907CB7 /* DataHandler.swift */; };
+		AC6DB6682A50B54B00907CB7 /* quoteOfTheDayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6DB6672A50B54B00907CB7 /* quoteOfTheDayTests.swift */; };
+		AC6DB6722A50BA4D00907CB7 /* QuotesViewModelMockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6DB6712A50BA4D00907CB7 /* QuotesViewModelMockData.swift */; };
 		ACAEA5F82A47781000ECA7E4 /* GradientBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAEA5F72A47781000ECA7E4 /* GradientBackgroundView.swift */; };
 		ACAEA6172A48B86400ECA7E4 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAEA6162A48B86400ECA7E4 /* Extensions.swift */; };
 		ACAEA6192A48B88400ECA7E4 /* DetailQuoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAEA6182A48B88400ECA7E4 /* DetailQuoteViewModel.swift */; };
@@ -33,11 +35,24 @@
 		ACC946FE2A47136E002270F5 /* ImagesLoadingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC946FD2A47136E002270F5 /* ImagesLoadingManager.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		AC6DB6692A50B54B00907CB7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ACC946C32A462109002270F5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ACC946CA2A462109002270F5;
+			remoteInfo = quoteOfTheDay;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		AC6DB60F2A4D957100907CB7 /* QuotesDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesDataModel.swift; sourceTree = "<group>"; };
 		AC6DB6112A4D958500907CB7 /* QuoteDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteDataModel.swift; sourceTree = "<group>"; };
 		AC6DB6132A4D95BA00907CB7 /* ImagesDataModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesDataModels.swift; sourceTree = "<group>"; };
 		AC6DB65E2A4F542300907CB7 /* DataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHandler.swift; sourceTree = "<group>"; };
+		AC6DB6652A50B54B00907CB7 /* quoteOfTheDayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = quoteOfTheDayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC6DB6672A50B54B00907CB7 /* quoteOfTheDayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = quoteOfTheDayTests.swift; sourceTree = "<group>"; };
+		AC6DB6712A50BA4D00907CB7 /* QuotesViewModelMockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesViewModelMockData.swift; sourceTree = "<group>"; };
 		ACAEA5F72A47781000ECA7E4 /* GradientBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientBackgroundView.swift; sourceTree = "<group>"; };
 		ACAEA6162A48B86400ECA7E4 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		ACAEA6182A48B88400ECA7E4 /* DetailQuoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailQuoteViewModel.swift; sourceTree = "<group>"; };
@@ -63,6 +78,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		AC6DB6622A50B54B00907CB7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		ACC946C82A462109002270F5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -81,6 +103,22 @@
 			path = DataHandler;
 			sourceTree = "<group>";
 		};
+		AC6DB6662A50B54B00907CB7 /* quoteOfTheDayTests */ = {
+			isa = PBXGroup;
+			children = (
+				AC6DB6672A50B54B00907CB7 /* quoteOfTheDayTests.swift */,
+			);
+			path = quoteOfTheDayTests;
+			sourceTree = "<group>";
+		};
+		AC6DB6732A50BA5D00907CB7 /* MockDataSources */ = {
+			isa = PBXGroup;
+			children = (
+				AC6DB6712A50BA4D00907CB7 /* QuotesViewModelMockData.swift */,
+			);
+			path = MockDataSources;
+			sourceTree = "<group>";
+		};
 		ACAEA61A2A49917C00ECA7E4 /* Animations, Shapes */ = {
 			isa = PBXGroup;
 			children = (
@@ -94,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				ACC946CD2A462109002270F5 /* quoteOfTheDay */,
+				AC6DB6662A50B54B00907CB7 /* quoteOfTheDayTests */,
 				ACC946CC2A462109002270F5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -102,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				ACC946CB2A462109002270F5 /* quoteOfTheDay.app */,
+				AC6DB6652A50B54B00907CB7 /* quoteOfTheDayTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -162,6 +202,7 @@
 				ACC946E52A463617002270F5 /* QuotesViewModel.swift */,
 				ACC946F92A46F695002270F5 /* ImagesViewModel.swift */,
 				ACAEA6182A48B88400ECA7E4 /* DetailQuoteViewModel.swift */,
+				AC6DB6732A50BA5D00907CB7 /* MockDataSources */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -196,6 +237,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		AC6DB6642A50B54B00907CB7 /* quoteOfTheDayTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AC6DB66B2A50B54B00907CB7 /* Build configuration list for PBXNativeTarget "quoteOfTheDayTests" */;
+			buildPhases = (
+				AC6DB6612A50B54B00907CB7 /* Sources */,
+				AC6DB6622A50B54B00907CB7 /* Frameworks */,
+				AC6DB6632A50B54B00907CB7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AC6DB66A2A50B54B00907CB7 /* PBXTargetDependency */,
+			);
+			name = quoteOfTheDayTests;
+			productName = quoteOfTheDayTests;
+			productReference = AC6DB6652A50B54B00907CB7 /* quoteOfTheDayTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		ACC946CA2A462109002270F5 /* quoteOfTheDay */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = ACC946DA2A46210A002270F5 /* Build configuration list for PBXNativeTarget "quoteOfTheDay" */;
@@ -223,6 +282,10 @@
 				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
+					AC6DB6642A50B54B00907CB7 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = ACC946CA2A462109002270F5;
+					};
 					ACC946CA2A462109002270F5 = {
 						CreatedOnToolsVersion = 14.3.1;
 					};
@@ -242,11 +305,19 @@
 			projectRoot = "";
 			targets = (
 				ACC946CA2A462109002270F5 /* quoteOfTheDay */,
+				AC6DB6642A50B54B00907CB7 /* quoteOfTheDayTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		AC6DB6632A50B54B00907CB7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		ACC946C92A462109002270F5 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -259,6 +330,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		AC6DB6612A50B54B00907CB7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC6DB6682A50B54B00907CB7 /* quoteOfTheDayTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		ACC946C72A462109002270F5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -281,6 +360,7 @@
 				ACC946F82A467411002270F5 /* CellView.swift in Sources */,
 				ACAEA6172A48B86400ECA7E4 /* Extensions.swift in Sources */,
 				ACAEA5F82A47781000ECA7E4 /* GradientBackgroundView.swift in Sources */,
+				AC6DB6722A50BA4D00907CB7 /* QuotesViewModelMockData.swift in Sources */,
 				AC6DB6122A4D958500907CB7 /* QuoteDataModel.swift in Sources */,
 				ACC946F42A463871002270F5 /* ContentView.swift in Sources */,
 				ACC946F22A4636C4002270F5 /* ErrorView.swift in Sources */,
@@ -290,7 +370,56 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		AC6DB66A2A50B54B00907CB7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ACC946CA2A462109002270F5 /* quoteOfTheDay */;
+			targetProxy = AC6DB6692A50B54B00907CB7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		AC6DB66C2A50B54B00907CB7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = NUUAUT9ZDU;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.horovenko.quoteOfTheDayTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/quoteOfTheDay.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/quoteOfTheDay";
+			};
+			name = Debug;
+		};
+		AC6DB66D2A50B54B00907CB7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = NUUAUT9ZDU;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.horovenko.quoteOfTheDayTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/quoteOfTheDay.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/quoteOfTheDay";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		ACC946D82A46210A002270F5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -485,6 +614,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		AC6DB66B2A50B54B00907CB7 /* Build configuration list for PBXNativeTarget "quoteOfTheDayTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC6DB66C2A50B54B00907CB7 /* Debug */,
+				AC6DB66D2A50B54B00907CB7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		ACC946C62A462109002270F5 /* Build configuration list for PBXProject "quoteOfTheDay" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
