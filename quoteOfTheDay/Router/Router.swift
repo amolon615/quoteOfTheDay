@@ -18,8 +18,6 @@ final class Router: ObservableObject {
         case settingsView
     }
     
-  
-    
     func navigate(to destination: Destination) {
         navPath.append(destination)
     }

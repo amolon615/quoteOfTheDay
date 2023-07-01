@@ -7,10 +7,6 @@
 
 import SwiftUI
 
-protocol DataSourceProtocol: AnyObject {
-    func fetchQuotes(pickPage: String) async -> Quotes?
-    func fetchQuote(withID id: String) async -> Quote?
-}
 
 class DataHandler: DataSourceProtocol {
     private var manager = DataManager()
